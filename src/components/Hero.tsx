@@ -115,14 +115,21 @@ export default function Hero() {
             </motion.span>
           ))}
           <span className="mx-3 inline-block" />
-          <motion.span
-            initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
-            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-            transition={{ delay: 2.25, duration: 0.7, ease: easeOutExpo }}
-            className="text-gradient inline-block"
-          >
-            Meshram
-          </motion.span>
+          {"Meshram".split("").map((c, i) => (
+            <motion.span
+              key={i}
+              initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
+              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+              transition={{
+                delay: 2.25 + i * 0.05,
+                duration: 0.7,
+                ease: easeOutExpo,
+              }}
+              className="text-gradient inline-block"
+            >
+              {c}
+            </motion.span>
+          ))}
         </h1>
 
         <motion.div
