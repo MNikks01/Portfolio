@@ -43,6 +43,7 @@ const config: Config = {
       },
       animation: {
         "gradient-x": "gradient-x 8s ease infinite",
+        "name-glow": "name-glow 5s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
         "spin-slow": "spin 20s linear infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
@@ -54,6 +55,10 @@ const config: Config = {
         "gradient-x": {
           "0%, 100%": { "background-position": "0% 50%" },
           "50%": { "background-position": "100% 50%" },
+        },
+        "name-glow": {
+          "0%, 100%": { filter: "drop-shadow(0 0 10px rgba(0,212,255,0.25))" },
+          "50%": { filter: "drop-shadow(0 0 28px rgba(139,92,246,0.55))" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },

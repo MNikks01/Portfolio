@@ -216,8 +216,13 @@ function Constellation({ category }: { category: Category }) {
   const cy = size / 2;
   const radius = 120;
   return (
-    <div className="relative mx-auto h-[320px] w-[320px]">
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <div className="relative mx-auto aspect-square w-full max-w-[320px]">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox={`0 0 ${size} ${size}`}
+        className="h-full w-full"
+      >
         <defs>
           <radialGradient id="cg" cx="50%" cy="50%">
             <stop offset="0%" stopColor={category.color} stopOpacity="0.6" />

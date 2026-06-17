@@ -98,7 +98,7 @@ export default function Hero() {
           Online · Available for senior roles
         </motion.div>
 
-        <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-[5.5rem]">
+        <h1 className="animate-name-glow font-display text-[clamp(2.75rem,11vw,5.5rem)] font-bold leading-[0.95] tracking-tight">
           {"Nikhil".split("").map((c, i) => (
             <motion.span
               key={i}
@@ -109,12 +109,12 @@ export default function Hero() {
                 duration: 0.7,
                 ease: easeOutExpo,
               }}
-              className="inline-block"
+              className="text-gradient inline-block"
             >
               {c}
             </motion.span>
           ))}
-          <span className="mx-3 inline-block" />
+          <span className="mx-2 inline-block sm:mx-3" />
           {"Meshram".split("").map((c, i) => (
             <motion.span
               key={i}
