@@ -54,6 +54,10 @@ export default function Hero() {
         <TechSphere />
       </div>
 
+      {/* readability scrim — keeps the left-aligned copy crisp over the 3D core */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-bg-deep via-bg-deep/75 to-transparent md:via-bg-deep/35" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-bg-deep via-transparent to-transparent" />
+
       {/* Floating tech labels */}
       {floatingTech.map((t) => (
         <motion.div
