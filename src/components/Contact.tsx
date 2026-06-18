@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import { site } from "@/content/site";
 
 export default function Contact() {
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
@@ -65,25 +66,25 @@ export default function Contact() {
               <ContactRow
                 icon={<Mail className="h-4 w-4" />}
                 label="Email"
-                value="mnikks01@gmail.com"
-                href="mailto:mnikks01@gmail.com"
+                value={site.email}
+                href={`mailto:${site.email}`}
               />
               <ContactRow
                 icon={<MapPin className="h-4 w-4" />}
                 label="Location"
-                value="Nagpur, Maharashtra"
+                value={site.location}
               />
               <ContactRow
                 icon={<Github className="h-4 w-4" />}
                 label="GitHub"
-                value="@MNikks01"
-                href="https://github.com/MNikks01"
+                value={site.social.github.handle}
+                href={site.social.github.url}
               />
               <ContactRow
                 icon={<Linkedin className="h-4 w-4" />}
                 label="LinkedIn"
-                value="nikhil-shakya"
-                href="https://linkedin.com/in/nikhil-shakya-5b7318a1"
+                value={site.social.linkedin.handle}
+                href={site.social.linkedin.url}
               />
             </div>
           </motion.div>

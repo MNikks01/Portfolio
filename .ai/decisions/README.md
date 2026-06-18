@@ -1,22 +1,27 @@
 # Architecture Decision Records (ADRs)
 
-One file per significant decision: `ADR-<NNN>-<slug>.md`. Keep them short and
-immutable (supersede rather than rewrite). A consolidated list also lives in
+The **canonical ADR log** is a single file:
 [`docs/architecture/architecture-decisions.md`](../../docs/architecture/architecture-decisions.md).
+
+It is kept as one consolidated, append-only document (newest first) to avoid the
+numbering drift that comes from maintaining ADRs in two places. Add new decisions
+there.
 
 ## Format
 
 ```
-# ADR-NNN — <title>
-- Status: Proposed | Accepted | Superseded by ADR-XXX
-- Date: YYYY-MM-DD
-## Context
-## Decision
-## Consequences
+## ADR-NNN — <title> (YYYY-MM-DD)
+**Decision:** …
+**Why:** …
+**Trade-off:** …
 ```
 
-## Index
+## Current decisions
 
-- [ADR-001 — Next.js App Router portfolio stack](./ADR-001.md)
-- [ADR-002 — React 19 + react-three-fiber v9 alignment](./ADR-002.md)
-- [ADR-003 — CSS-variable design tokens for theming](./ADR-003.md)
+- ADR-007 — Typed content layer in `src/content/*`
+- ADR-006 — Knowledge base as source of truth
+- ADR-005 — Dark/light theming via CSS-variable tokens
+- ADR-004 — Isolate the WebGL hero (CanvasBoundary)
+- ADR-003 — Align stack on React 19
+- ADR-002 — Tooling baseline (Prettier/ESLint/Vitest/Husky/CI)
+- ADR-001 — Next.js App Router + Tailwind + Framer Motion + R3F

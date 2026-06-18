@@ -11,7 +11,6 @@ Linked debt: [technical-debt.md](./technical-debt.md).
 
 ## P2
 
-- [ ] **Migrate portfolio content to a docs-sourced content layer** (TD-003)
 - [ ] **Wire the contact form to a real backend** (Resend / `/api/contact`) with
       validation + rate limiting (TD-004)
 - [ ] **Add Playwright E2E smoke tests** — home renders, theme toggle, nav anchors
@@ -28,9 +27,14 @@ Linked debt: [technical-debt.md](./technical-debt.md).
 - [ ] **Accessibility pass** — skip-to-content link, full ARIA + screen-reader test
 - [ ] **Commit-message linting** (commitlint + commit-msg hook)
 - [ ] **Review skill levels for accuracy** (TD-009)
+- [ ] **Generate `src/content/*` from `docs/` (or test the sync)** — the content
+      layer is currently hand-synced; add a generator or a test that asserts
+      `content ↔ docs` parity so they cannot drift (residual of TD-003)
 
 ## Done
 
+- [x] **Migrate portfolio content to a docs-sourced content layer** (TD-003,
+      ADR-007) — 13 section modules + `site.ts` under `src/content/*`
 - [x] Prettier + ESLint flat config + Husky + lint-staged
 - [x] Vitest + Testing Library setup with initial tests
 - [x] GitHub Actions CI (format/lint/types/test/build)

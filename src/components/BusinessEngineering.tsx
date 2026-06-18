@@ -1,44 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Cpu, Boxes, Plus, Equal } from "lucide-react";
+import { Plus, Equal } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-
-const cards = [
-  {
-    icon: Briefcase,
-    label: "Business Thinking",
-    color: "#EC4899",
-    points: [
-      "Talk to customers, not just stakeholders",
-      "Validate before building",
-      "Translate value for non-technical buyers",
-      "Revenue, retention, and ROI awareness",
-    ],
-  },
-  {
-    icon: Cpu,
-    label: "Engineering Thinking",
-    color: "#00D4FF",
-    points: [
-      "Architect for scale and reliability",
-      "Clean, maintainable, tested systems",
-      "Automate and ship continuously",
-      "Leverage AI to move faster",
-    ],
-  },
-  {
-    icon: Boxes,
-    label: "Product Thinking",
-    color: "#8B5CF6",
-    points: [
-      "Build what customers actually need",
-      "End-to-end ownership, 0 → 1",
-      "Trade-offs that balance speed & quality",
-      "Outcomes over output",
-    ],
-  },
-];
+import { cards } from "@/content/business-engineering";
 
 export default function BusinessEngineering() {
   return (

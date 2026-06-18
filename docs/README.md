@@ -48,10 +48,13 @@ These workflows are the contract. Follow them exactly.
 | `Stats.tsx`                  | `profile/achievements.md`                          |
 | `Contact.tsx` / `Footer.tsx` | `profile/contact.md`                               |
 
-> Today the portfolio still hardcodes this content in components. Migrating it to
-> a shared content layer that reads from these docs is tracked as a backlog item
-> (`governance/backlog.md`). Until then, keep both in sync manually — **docs
-> first**.
+> The portfolio no longer hardcodes content in components. Each section reads
+> from a typed module in [`src/content/*`](../src/content) (and shared
+> identity/contact from `src/content/site.ts`); see ADR-007. The content layer
+> is still **hand-synced** with these docs, so the contract stands: update the
+> relevant `docs/` file first, then mirror it in the matching `src/content/*`
+> module (the component JSX rarely needs to change). A generator/parity-test to
+> remove the manual sync is a P3 backlog item.
 
 ## Conventions
 

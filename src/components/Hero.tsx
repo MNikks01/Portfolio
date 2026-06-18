@@ -10,6 +10,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { easeOutExpo } from "@/lib/utils";
+import { badges, floatingTech } from "@/content/hero";
+import { site } from "@/content/site";
 import CanvasBoundary from "./three/CanvasBoundary";
 
 const TechSphere = dynamic(() => import("./three/TechSphere"), {
@@ -20,24 +22,6 @@ const TechSphere = dynamic(() => import("./three/TechSphere"), {
     </div>
   ),
 });
-
-const badges = [
-  "5+ Years Experience",
-  "MERN",
-  "Node.js",
-  "AWS",
-  "Docker",
-  "AI Engineering",
-];
-
-const floatingTech = [
-  { label: "React", color: "#22D3EE", x: "8%", y: "20%", delay: 0 },
-  { label: "Next.js", color: "#94A3B8", x: "82%", y: "18%", delay: 0.2 },
-  { label: "Node.js", color: "#10B981", x: "12%", y: "70%", delay: 0.4 },
-  { label: "AWS", color: "#F59E0B", x: "84%", y: "62%", delay: 0.6 },
-  { label: "Docker", color: "#00D4FF", x: "50%", y: "8%", delay: 0.8 },
-  { label: "MCP", color: "#EC4899", x: "50%", y: "84%", delay: 1.0 },
-];
 
 export default function Hero() {
   return (
@@ -113,7 +97,7 @@ export default function Hero() {
 
         <h1 className="animate-name-glow font-display text-[clamp(2.5rem,10vw,5.25rem)] font-bold leading-[0.92] tracking-tight">
           <span className="block">
-            {"Nikhil".split("").map((c, i) => (
+            {site.name.split("").map((c, i) => (
               <motion.span
                 key={i}
                 initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
@@ -168,7 +152,7 @@ export default function Hero() {
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a
-            href="/resume.pdf"
+            href={site.resume}
             className="group inline-flex items-center gap-2 rounded-full border border-overlay/15 bg-overlay/5 px-5 py-3 text-sm font-medium text-fg transition hover:border-overlay/30 hover:bg-overlay/10"
           >
             <Download className="h-4 w-4 text-brand-cyan" />

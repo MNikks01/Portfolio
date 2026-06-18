@@ -11,6 +11,7 @@ A fast index of where everything lives.
 | `src/app/globals.css`                     | Design tokens (`:root` dark, `.light`), utilities |
 | `src/app/{sitemap,robots}.ts`             | SEO                                               |
 | `src/components/*`                        | One component per section + shared pieces         |
+| `src/content/*`                           | Typed content per section + `site.ts` (ADR-007)   |
 | `src/components/three/TechSphere.tsx`     | R3F hero scene                                    |
 | `src/components/three/CanvasBoundary.tsx` | WebGL failure isolation                           |
 | `src/lib/utils.ts`                        | `cn()` + easing; `*.test.ts(x)` co-located        |

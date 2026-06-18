@@ -26,7 +26,10 @@ Tracked debt items. Format: Issue · Impact · Priority · Suggested Fix · Stat
 - **Priority:** P2
 - **Suggested Fix:** Introduce a typed content layer (`src/content/*`) that is
   the single import source, kept in sync with `docs/` (or generated from it).
-- **Status:** Open
+- **Status:** ✅ Done (2026-06-18) — all 13 sections + `site.ts` extracted to
+  `src/content/*`; components import the data, JSX unchanged. See ADR-007.
+  Residual: the layer is hand-synced with `docs/`, not generated (tracked as a
+  P3 backlog item).
 
 ### TD-004 — Contact form has no backend
 

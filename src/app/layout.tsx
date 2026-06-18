@@ -6,6 +6,7 @@ import CustomCursor from "@/components/CustomCursor";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { site } from "@/content/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,18 +24,18 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const url = "https://nikhilmeshram.dev";
-const title = "Nikhil — Senior Full Stack Engineer";
+const url = site.url;
+const title = `${site.name} — ${site.role}`;
 const description =
   "Senior Full Stack Engineer building scalable systems, AI-powered developer tools, and modern cloud platforms. MERN, Node.js, AWS, Docker, Kubernetes, and AI engineering.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
-  title: { default: title, template: "%s — Nikhil" },
+  title: { default: title, template: `%s — ${site.name}` },
   description,
-  applicationName: "Nikhil Portfolio",
-  authors: [{ name: "Nikhil", url }],
-  creator: "Nikhil",
+  applicationName: `${site.name} Portfolio`,
+  authors: [{ name: site.name, url }],
+  creator: site.name,
   keywords: [
     "Senior Full Stack Engineer",
     "Node.js Developer",
@@ -55,13 +56,13 @@ export const metadata: Metadata = {
     url,
     title,
     description,
-    siteName: "Nikhil",
+    siteName: site.name,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nikhil — Senior Full Stack Engineer",
+        alt: title,
       },
     ],
   },
@@ -94,20 +95,17 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Nikhil",
+    name: site.name,
     url,
-    jobTitle: "Senior Full Stack Engineer",
-    email: "mailto:mnikks01@gmail.com",
+    jobTitle: site.role,
+    email: `mailto:${site.email}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Nagpur",
       addressRegion: "Maharashtra",
       addressCountry: "IN",
     },
-    sameAs: [
-      "https://github.com/MNikks01",
-      "https://linkedin.com/in/nikhil-shakya-5b7318a1",
-    ],
+    sameAs: [site.social.github.url, site.social.linkedin.url],
     knowsAbout: [
       "React",
       "Next.js",
