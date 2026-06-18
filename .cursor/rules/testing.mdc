@@ -1,0 +1,16 @@
+---
+description: Testing rules (Vitest + Testing Library).
+globs: src/**/*.test.ts,src/**/*.test.tsx,vitest.setup.ts,vitest.config.ts
+alwaysApply: false
+---
+
+# Testing rules
+
+- Framework: **Vitest** + **@testing-library/react** on **jsdom**.
+- Co-locate tests as `*.test.ts(x)` next to the code.
+- Test behavior/output (Testing Library queries), not implementation details.
+- Browser APIs (`matchMedia`, `IntersectionObserver`, `ResizeObserver`) are
+  mocked in `vitest.setup.ts` — extend there if a component needs more.
+- Keep tests deterministic and fast; no network.
+- Run with `npm test`; add tests for new logic and bug fixes.
+- Backlog: add Playwright E2E smoke + broaden coverage (TD-005).

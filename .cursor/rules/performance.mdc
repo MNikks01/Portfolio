@@ -1,0 +1,17 @@
+---
+description: Performance rules (Lighthouse, bundle, rendering).
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# Performance rules
+
+- Target Lighthouse ≥ 90. Measure before/after for notable changes.
+- Keep first-load JS lean: dynamically import heavy/client-only modules
+  (three.js is already `next/dynamic`, `ssr: false`).
+- Use `next/image` with correct sizes when images are added; fonts via
+  `next/font` with `display: swap`.
+- Avoid layout shift (reserve space); prioritize hero LCP, defer the 3D.
+- Memoize expensive components; keep props stable to avoid re-renders.
+- Use GPU-friendly transform/opacity animations; honor
+  `prefers-reduced-motion`. Details: `.claude/CHECKLISTS/performance.md`.

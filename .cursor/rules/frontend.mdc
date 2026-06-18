@@ -1,0 +1,20 @@
+---
+description: Frontend (React/Next/Tailwind/motion) rules for components.
+globs: src/components/**/*.tsx,src/app/**/*.tsx
+alwaysApply: false
+---
+
+# Frontend rules
+
+- React 19 + Next 15 App Router. `"use client"` only when needed.
+- One section component per file in `src/components/`.
+- **Tailwind semantic tokens only** — `text-ink/fg/soft/muted/faint`,
+  `bg-overlay/<a>`, `border-overlay/<a>`, `bg-bg-deep/panel`,
+  `brand-blue/purple/cyan/emerald/pink`. No literal `white`/`zinc`.
+- Reuse `SectionHeading`, `glass`/`glass-light`, accent-glow blur.
+- Framer Motion: entrance via `initial` + `whileInView` (`viewport={{ once:
+  true, margin: "-70px" }}`), staggered `delay`.
+- Responsive first (mobile → `md:`/`lg:`). No horizontal overflow.
+- Inline `style` only for dynamic values (e.g. brand color).
+- Content comes from `docs/` — keep the matching doc in sync.
+- Add/extend a Vitest test for new logic.

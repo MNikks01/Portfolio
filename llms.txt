@@ -1,0 +1,52 @@
+# Nikhil — Portfolio (AI-native repository)
+
+> A premium Next.js 15 + React 19 + TypeScript personal portfolio positioning
+> Nikhil as a founder, product engineer, technical architect, and AI engineer.
+> The repository is self-describing for AI agents: `/docs` is the canonical
+> knowledge base and `.claude/`, `.cursor/`, `.ai/` form an AI operating system.
+
+This site is statically prerendered on the Next.js App Router with Tailwind
+(CSS-variable design tokens, dark/light themes), Framer Motion, a
+react-three-fiber 3D hero, and a full quality gate (ESLint, Prettier, Vitest,
+Husky, GitHub Actions → Netlify).
+
+Key rules for any AI agent: update `/docs` before `/src`; use semantic color
+tokens only (never literal white/zinc); don't redesign the visual identity; keep
+the quality gate green; update `docs/governance/*` after changes.
+
+## Start here
+
+- [AI entry point](.claude/CLAUDE.md): primary instructions for AI agents
+- [Knowledge base index](docs/README.md): canonical content + update contracts
+- [Repo map](.ai/context/repo-map.md): where everything lives
+- [README](README.md): human-facing overview and scripts
+
+## Who & what
+
+- [User context](.claude/USER_CONTEXT.md): Nikhil's identity, focus, goals
+- [Project context](.claude/PROJECT_CONTEXT.md): purpose, stack, sections
+- [Profile](docs/profile/): personal, contact, bio, achievements
+- [Career](docs/career/): work experience, founder journey, timeline
+- [Skills](docs/skills/): frontend, backend, databases, devops, ai, mobile, tools
+- [Projects](docs/projects/): ConnectEdApp, Revize, Ignix UI + index
+
+## How it's built
+
+- [Architecture](docs/ARCHITECTURE.md) and [ADRs](docs/architecture/architecture-decisions.md)
+- [Coding standards](docs/architecture/standards.md)
+- [Engineering principles](docs/architecture/engineering-principles.md)
+
+## Governance
+
+- [Production checklist](docs/governance/production-checklist.md)
+- [Technical debt](docs/governance/technical-debt.md)
+- [Backlog](docs/governance/backlog.md)
+- [Roadmap](docs/governance/roadmap.md)
+- [Audit report](docs/governance/audit-report.md)
+
+## AI operating system
+
+- [Agents](.claude/AGENTS/), [Checklists](.claude/CHECKLISTS/), [Templates](.claude/TEMPLATES/)
+- [Cursor rules](.cursor/rules/)
+- [Prompts](.ai/prompts/), [Workflows](.ai/workflows/), [Memory](.ai/memory/)
+- [MCP descriptor](mcp.json), [Copilot instructions](.github/copilot-instructions.md)

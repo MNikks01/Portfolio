@@ -1,0 +1,21 @@
+---
+description: Documentation & knowledge-base rules. Always apply.
+globs:
+alwaysApply: true
+---
+
+# Documentation rules
+
+- `/docs` is the **canonical source of truth** for career + portfolio content
+  and engineering governance. Update it **before** `/src`.
+- Mapping of docs → components is in `docs/README.md` and
+  `.claude/WORKFLOWS.md`. Follow the update contracts exactly.
+- When content/behavior changes, update the matching `docs/` file and, if
+  quality changed, `docs/governance/*` (checklist, technical-debt, backlog,
+  roadmap, audit-report).
+- Record significant decisions as ADRs (`docs/architecture/architecture-decisions.md`
+  and `.ai/decisions`).
+- Keep `.ai/memory/*`, `mcp.json`, and `llms.txt` current so AI clients stay
+  oriented.
+- Prose: clear, concise, absolute dates. Don't duplicate content across files —
+  link to the canonical one.

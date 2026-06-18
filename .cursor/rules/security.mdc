@@ -1,0 +1,19 @@
+---
+description: Security rules (OWASP, CSP, secrets, validation). Always apply.
+globs:
+alwaysApply: true
+---
+
+# Security rules
+
+- **Never commit secrets.** `.env*` is gitignored (except `.env.example`). Don't
+  log secrets.
+- **Headers/CSP:** target a restrictive Content-Security-Policy + security
+  headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy,
+  Permissions-Policy). Currently missing — TD-001 (P1).
+- **XSS:** rely on React escaping. `dangerouslySetInnerHTML` only for controlled,
+  static content (JSON-LD, theme script) — never user input.
+- **Validation:** validate/sanitize all external input server-side.
+- **AuthZ:** least privilege; RBAC when auth is added.
+- **Dependencies:** run `npm audit`; triage high/critical.
+- Follow OWASP Top 10. Details: `.claude/CHECKLISTS/security.md`.

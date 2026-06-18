@@ -1,0 +1,19 @@
+---
+description: Backend / API route rules (applies once server code is added).
+globs: src/app/api/**/*.ts,src/server/**/*.ts
+alwaysApply: false
+---
+
+# Backend rules
+
+The repo is currently a static portfolio; backend work starts with the contact
+endpoint (TD-004).
+
+- Use Next route handlers (`src/app/api/<name>/route.ts`).
+- **Validate all input server-side** (e.g. zod); never trust the client.
+- Secrets via env vars only; never logged or committed.
+- Return structured, safe errors (no stack traces to clients).
+- Rate-limit public/mutating endpoints.
+- Parameterized DB access; least-privilege auth (JWT/OAuth + RBAC) when added.
+- Add tests for happy and failure paths.
+- Record notable decisions as ADRs (`.ai/decisions`).

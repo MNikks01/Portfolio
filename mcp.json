@@ -1,0 +1,106 @@
+{
+  "description": "Repository descriptor for AI/MCP clients. This is a discovery manifest (project metadata, context + documentation locations, agents, tools) — not an MCP server launch config.",
+  "schemaVersion": "1.0",
+  "project": {
+    "name": "nikhil-portfolio",
+    "type": "portfolio-website",
+    "owner": "Nikhil",
+    "summary": "AI-native Next.js 15 + React 19 + TypeScript portfolio positioning Nikhil as a founder, product engineer, technical architect, and AI engineer.",
+    "repository": "https://github.com/MNikks01/Portfolio",
+    "liveUrl": "https://the-tech-nik.netlify.app",
+    "primaryLanguage": "TypeScript",
+    "frameworks": ["Next.js 15 (App Router)", "React 19", "Tailwind CSS 3"],
+    "libraries": [
+      "framer-motion",
+      "three / @react-three/fiber / drei",
+      "lenis"
+    ],
+    "deploy": "Netlify (auto-deploy from main)"
+  },
+  "entryPoints": {
+    "humanReadme": "README.md",
+    "aiEntry": ".claude/CLAUDE.md",
+    "llmsDiscovery": "llms.txt",
+    "copilot": ".github/copilot-instructions.md",
+    "cursorContext": ".cursor/project-context.md"
+  },
+  "context": {
+    "user": ".claude/USER_CONTEXT.md",
+    "project": ".claude/PROJECT_CONTEXT.md",
+    "architecture": [".claude/ARCHITECTURE.md", "docs/ARCHITECTURE.md"],
+    "standards": [
+      ".claude/CODING_STANDARDS.md",
+      "docs/architecture/standards.md"
+    ],
+    "repoMap": ".ai/context/repo-map.md",
+    "memory": ".ai/memory/"
+  },
+  "documentation": {
+    "knowledgeBaseRoot": "docs/",
+    "knowledgeBaseIndex": "docs/README.md",
+    "profile": "docs/profile/",
+    "career": "docs/career/",
+    "skills": "docs/skills/",
+    "projects": "docs/projects/",
+    "portfolioContent": "docs/portfolio/",
+    "governance": "docs/governance/",
+    "decisions": [
+      "docs/architecture/architecture-decisions.md",
+      ".ai/decisions/"
+    ]
+  },
+  "sourceOfTruth": {
+    "rule": "Update docs/ first, then the portfolio in src/. Never let content drift.",
+    "mapping": "docs/README.md"
+  },
+  "agents": [
+    { "name": "frontend", "spec": ".claude/AGENTS/frontend-agent.md" },
+    { "name": "backend", "spec": ".claude/AGENTS/backend-agent.md" },
+    { "name": "architect", "spec": ".claude/AGENTS/architect-agent.md" },
+    { "name": "ui", "spec": ".claude/AGENTS/ui-agent.md" },
+    {
+      "name": "accessibility",
+      "spec": ".claude/AGENTS/accessibility-agent.md"
+    },
+    { "name": "performance", "spec": ".claude/AGENTS/performance-agent.md" },
+    { "name": "seo", "spec": ".claude/AGENTS/seo-agent.md" },
+    { "name": "devops", "spec": ".claude/AGENTS/devops-agent.md" },
+    { "name": "security", "spec": ".claude/AGENTS/security-agent.md" },
+    { "name": "ai", "spec": ".claude/AGENTS/ai-agent.md" }
+  ],
+  "workflows": {
+    "featureDevelopment": ".ai/workflows/feature-development.md",
+    "productionAudit": ".ai/workflows/production-audit.md",
+    "selfImprovement": ".ai/workflows/self-improvement.md"
+  },
+  "prompts": ".ai/prompts/",
+  "tools": [
+    {
+      "name": "dev",
+      "command": "npm run dev",
+      "description": "Start dev server"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "description": "Production build"
+    },
+    { "name": "lint", "command": "npm run lint", "description": "ESLint" },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "description": "tsc --noEmit"
+    },
+    {
+      "name": "format",
+      "command": "npm run format",
+      "description": "Prettier write"
+    },
+    { "name": "test", "command": "npm test", "description": "Vitest" }
+  ],
+  "conventions": {
+    "theming": "CSS-variable tokens; never literal white/zinc; both themes must work",
+    "qualityGate": "format + lint + typecheck + test + build must pass",
+    "governance": "After changes, update docs/governance/*"
+  }
+}

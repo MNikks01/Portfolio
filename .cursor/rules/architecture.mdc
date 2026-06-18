@@ -1,0 +1,29 @@
+---
+description: Core architecture & repository rules. Always read first.
+globs:
+alwaysApply: true
+---
+
+# Architecture rules
+
+This is an AI-native Next.js 15 + React 19 + TypeScript portfolio. The canonical
+knowledge base is `/docs` (source of truth); the AI operating system is in
+`.claude/`, `.cursor/`, `.ai/`.
+
+- **Docs first.** Update `/docs` before `/src`. Never let content drift. Mapping:
+  `docs/README.md`.
+- **Token-driven theming.** Never use literal `text-white`, `text-zinc-*`,
+  `bg-white/x`, `border-white/x`. Use `text-ink/fg/soft/muted/faint`,
+  `bg-overlay/<a>`, `border-overlay/<a>`, `bg-bg-deep/panel`. Both light and dark
+  themes must work. Light-only tweaks use the `light:` variant.
+- **Don't redesign.** Preserve visual identity, palette, typography, layout, and
+  animation language.
+- **Section pattern.** `<section id className="section-pad relative
+  overflow-hidden">` + `SectionHeading` + `motion`/`whileInView`. Reuse `glass`,
+  accent-glow patterns.
+- **Resilience.** Keep `CanvasBoundary` + `webglcontextlost` around the 3D hero.
+- **Quality gate before done:** `npm run format && npm run lint && npm run
+  typecheck && npm test && npm run build`.
+- **Governance.** After changes, update `docs/governance/*`.
+
+See `.claude/CLAUDE.md` and `.claude/ARCHITECTURE.md` for depth.
