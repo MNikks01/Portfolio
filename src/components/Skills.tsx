@@ -108,8 +108,8 @@ export default function Skills() {
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[300px_1fr]">
-          {/* Category Selector */}
-          <div className="flex flex-row gap-2 overflow-x-auto lg:flex-col">
+          {/* Category Selector — wrapping pills on mobile, rich list on desktop */}
+          <div className="flex flex-wrap gap-2 lg:flex-col lg:flex-nowrap">
             {categories.map((c) => {
               const Icon = c.icon;
               const isActive = c.id === active;
@@ -118,7 +118,7 @@ export default function Skills() {
                   key={c.id}
                   onMouseEnter={() => setActive(c.id)}
                   onClick={() => setActive(c.id)}
-                  className={`group relative flex shrink-0 items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-all ${
+                  className={`group relative flex items-center gap-2 rounded-full border px-3.5 py-2 text-left transition-all lg:gap-3 lg:rounded-2xl lg:px-4 lg:py-3 ${
                     isActive
                       ? "border-white/15 bg-white/5"
                       : "border-white/5 hover:border-white/10 hover:bg-white/5"
@@ -129,8 +129,9 @@ export default function Skills() {
                       : undefined
                   }
                 >
+                  {/* desktop icon tile */}
                   <span
-                    className="grid h-9 w-9 place-items-center rounded-xl"
+                    className="hidden h-9 w-9 place-items-center rounded-xl lg:grid"
                     style={{
                       background: `${c.color}1a`,
                       boxShadow: `inset 0 0 0 1px ${c.color}40`,
@@ -138,18 +139,23 @@ export default function Skills() {
                   >
                     <Icon className="h-4 w-4" style={{ color: c.color }} />
                   </span>
-                  <div>
-                    <div className="text-sm font-semibold text-white">
+                  {/* mobile color dot */}
+                  <span
+                    className="h-2 w-2 shrink-0 rounded-full lg:hidden"
+                    style={{ background: c.color, boxShadow: `0 0 8px ${c.color}` }}
+                  />
+                  <span className="flex flex-col">
+                    <span className="text-sm font-semibold leading-tight text-white">
                       {c.label}
-                    </div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                    </span>
+                    <span className="hidden font-mono text-[10px] uppercase tracking-widest text-zinc-500 lg:block">
                       {c.skills.length} tech
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                   {isActive && (
                     <motion.span
                       layoutId="skill-pill"
-                      className="absolute inset-y-2 right-2 w-1 rounded-full"
+                      className="absolute inset-y-2 right-2 hidden w-1 rounded-full lg:block"
                       style={{
                         background: c.color,
                         boxShadow: `0 0 12px ${c.color}`,
