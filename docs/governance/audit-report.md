@@ -4,6 +4,42 @@ Append a new entry each time a "Review codebase" audit runs. Newest first.
 
 ---
 
+## 2026-06-18 — Remediation pass (closed the audit backlog)
+
+**Scope:** Acted on every finding from the post-refactor audit below. All P1 and
+the actionable P2/P3 items were fixed, verified, and reflected across the
+governance set.
+
+**Shipped & verified:**
+
+| Finding (prev #)                | Resolution                                                    | Verified by                        |
+| ------------------------------- | ------------------------------------------------------------- | ---------------------------------- |
+| Security headers / CSP (TD-001) | `next.config.ts headers()` — CSP + 6 hardening headers        | `curl -I` shows all headers        |
+| Error boundary (TD-002)         | `app/error.tsx` + `global-error.tsx`                          | build + render                     |
+| AISection tokens (TD-010)       | tokens (`bg-bg-deep`, `border-overlay`, `text-soft/faint`)    | dark + light screenshots           |
+| og.png missing (TD-011)         | `opengraph-image.tsx` + `twitter-image.tsx` (`ImageResponse`) | `/opengraph-image` → 200 image/png |
+| Contact backend (TD-004)        | `/api/contact` validation + per-IP rate limit; form wired     | 200 / 400 / 429 responses          |
+| Tests (TD-005)                  | Playwright E2E (3) + Vitest 9 → 26 + parity test              | `npm test`, `npm run e2e` green    |
+| Lighthouse (TD-006)             | Lighthouse CI job + `.lighthouserc.json` budgets              | workflow added                     |
+| Reduced motion (TD-012)         | `MotionConfig reducedMotion="user"` + Lenis skip + counter    | code                               |
+| Dead code (TD-007)              | `About.tsx` deleted                                           | grep                               |
+| Duplicate markup (TD-008)       | shared `SectionCard` in the uniform grids                     | pixel-identical screenshots        |
+| A11y skip link                  | skip-to-content link + `<main id="main">`                     | code                               |
+
+**Also:** commitlint + `commit-msg` hook; `sitemap`/`robots` sourced from
+`site.ts`; migrated off deprecated `next lint` → ESLint CLI.
+
+**Residuals (re-filed):** CSP `script-src 'unsafe-inline'` → nonce-via-middleware
+(P2); three.js bundle reduction (P2); full ARIA + screen-reader pass (P3);
+content generator to replace the hand-sync (P3); `next/image` adoption (P3).
+
+**Quality gate:** `format` · `lint` · `typecheck` · `test` (26) · `build` ·
+`e2e` (3) all green. **Scorecard overall 76 → 88;** Security 62 → 85, Testing
+45 → 82. See [scorecard.md](./scorecard.md) and
+[repository-maturity-report.md](./repository-maturity-report.md).
+
+---
+
 ## 2026-06-18 — Post-refactor production audit
 
 **Reviewed (actual code, not assumptions):** `src/app/*` (`layout.tsx`,

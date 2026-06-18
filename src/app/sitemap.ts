@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
+import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const url = "https://nikhilmeshram.dev";
   return [
     {
-      url,
+      url: site.url,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,

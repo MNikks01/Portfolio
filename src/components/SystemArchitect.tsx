@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import SectionCard from "./SectionCard";
 import { flow, capabilities } from "@/content/system-architect";
+
+const MotionSectionCard = motion.create(SectionCard);
 
 export default function SystemArchitect() {
   return (
@@ -75,18 +78,16 @@ export default function SystemArchitect() {
           {capabilities.map((c, i) => {
             const Icon = c.icon;
             return (
-              <motion.div
+              <MotionSectionCard
                 key={c.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-overlay/10 bg-overlay/[0.03] p-5 transition hover:-translate-y-0.5"
+                accent={c.color}
+                glowClassName="-right-8 -top-8 h-24 w-24 opacity-0 group-hover:opacity-30"
+                className="p-5 hover:-translate-y-0.5"
               >
-                <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition group-hover:opacity-30"
-                  style={{ background: c.color }}
-                />
                 <span
                   className="grid h-9 w-9 place-items-center rounded-lg"
                   style={{
@@ -102,7 +103,7 @@ export default function SystemArchitect() {
                 <p className="mt-1.5 text-xs leading-relaxed text-muted">
                   {c.desc}
                 </p>
-              </motion.div>
+              </MotionSectionCard>
             );
           })}
         </div>

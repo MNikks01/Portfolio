@@ -54,25 +54,25 @@ export default function AISection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0f1c] p-0"
+            className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-bg-deep p-0"
           >
-            <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
+            <div className="flex items-center gap-2 border-b border-overlay/10 px-5 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-              <div className="ml-3 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              <div className="ml-3 font-mono text-[10px] uppercase tracking-widest text-faint">
                 ~/engineering-os · agent.session
               </div>
-              <Terminal className="ml-auto h-4 w-4 text-zinc-500" />
+              <Terminal className="ml-auto h-4 w-4 text-faint" />
             </div>
-            <pre className="overflow-hidden p-6 font-mono text-[12px] leading-relaxed text-zinc-300">
+            <pre className="overflow-hidden p-6 font-mono text-[12px] leading-relaxed text-soft">
               <code>
                 <TypeLines
                   lines={[
                     [{ t: "$ ", c: "#22D3EE" }, { t: "mcp connect" }],
                     [
                       { t: "✓ ", c: "#10B981" },
-                      { t: "Linked: ", c: "#a1a1aa" },
+                      { t: "Linked: " },
                       { t: "claude · cursor · github · linear" },
                     ],
                     [
@@ -80,9 +80,9 @@ export default function AISection() {
                       { t: "agent run " },
                       { t: "review --pr 412", c: "#8B5CF6" },
                     ],
-                    [{ t: "→ analyzing diff (134 files)", c: "#a1a1aa" }],
+                    [{ t: "→ analyzing diff (134 files)" }],
                     [{ t: "→ found 3 risks, 7 suggestions", c: "#EC4899" }],
-                    [{ t: "→ posting structured review", c: "#a1a1aa" }],
+                    [{ t: "→ posting structured review" }],
                     [{ t: "✓ ", c: "#10B981" }, { t: "Done in 12.4s" }],
                     [{ t: "$ ", c: "#22D3EE" }, { t: "_" }],
                   ]}

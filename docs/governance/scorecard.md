@@ -3,136 +3,126 @@
 A category-by-category score of this repository's engineering quality, on a
 0–100 scale, with rationale. Updated on every "Review codebase" audit (see
 [`.ai/workflows/self-improvement.md`](../../.ai/workflows/self-improvement.md)).
-Scores reflect the codebase **as audited**, not aspiration — they should move as
+Scores reflect the codebase **as audited**, not aspiration — they move as
 backlog items land.
 
-**Last scored:** 2026-06-18 (post-content-layer refactor).
+**Last scored:** 2026-06-18 (post-remediation — the P1/P2 hardening backlog
+shipped).
 **Source audit:** [audit-report.md](./audit-report.md).
 
 ## Summary
 
-| Category             | Score      | Trend       |
-| -------------------- | ---------- | ----------- |
-| Architecture         | **88**/100 | ▲ (was 80)  |
-| Security             | **62**/100 | ▬           |
-| Performance          | **75**/100 | ▬           |
-| Accessibility        | **62**/100 | ▬           |
-| SEO                  | **85**/100 | ▼ (og.png)  |
-| Testing              | **45**/100 | ▬           |
-| Documentation        | **96**/100 | ▲           |
-| Developer Experience | **92**/100 | ▲           |
-| **Overall**          | **76**/100 | ▲ (was ~73) |
+| Category             | Score      | Trend      |
+| -------------------- | ---------- | ---------- |
+| Architecture         | **92**/100 | ▲ (was 88) |
+| Security             | **85**/100 | ▲ (was 62) |
+| Performance          | **82**/100 | ▲ (was 75) |
+| Accessibility        | **78**/100 | ▲ (was 62) |
+| SEO                  | **95**/100 | ▲ (was 85) |
+| Testing              | **82**/100 | ▲ (was 45) |
+| Documentation        | **97**/100 | ▲ (was 96) |
+| Developer Experience | **96**/100 | ▲ (was 92) |
+| **Overall**          | **88**/100 | ▲ (was 76) |
 
-> Overall is the unweighted mean of the eight categories (rounded). The two
-> biggest levers are **Testing** and **Security** — both are process/hardening
-> gaps, not architectural ones.
+> Overall is the unweighted mean of the eight categories (rounded). The
+> remediation pass closed the two laggards — **Security** (62 → 85) and
+> **Testing** (45 → 82).
 
 ---
 
-## Architecture — 88/100
+## Architecture — 92/100
 
-**Why:** Clean separation of concerns; one component per section; a new **typed
-content layer** (`src/content/*` + `site.ts`, ADR-007) makes
-`docs → content → component` the contract and removes content-drift risk. The
-WebGL hero is isolated behind `CanvasBoundary` with `webglcontextlost` handling
-so a GPU failure degrades to a glow instead of crashing the page.
+**Why:** Typed content layer (ADR-007); a shared `SectionCard` primitive now
+backs the uniform grid sections, closing the duplicate-markup gap (TD-008). One
+component per section; WebGL isolated behind `CanvasBoundary` plus route-level
+and root error boundaries.
 
-**Costing points:** card/glow markup is duplicated across sections (TD-008, no
-shared `SectionCard`); structure is section-based rather than feature-foldered;
-the content layer is hand-synced with `docs/` rather than generated.
+**Costing points:** structure is section-based rather than feature-foldered; the
+content layer is hand-synced with `docs/` (now guarded by a parity test, not a
+generator); a few bespoke card layouts remain by design.
 
-**To reach 95:** extract `SectionCard`; add a `content ↔ docs` parity test or
-generator.
+**To reach 98:** a content generator (remove the manual sync) + broader
+`SectionCard` adoption.
 
-## Security — 62/100
+## Security — 85/100
 
-**Why:** Secrets are safe (`.env*` gitignored, none committed), React escaping
-handles XSS, `dangerouslySetInnerHTML` is used only for controlled JSON-LD and
-the no-flash theme script, and `poweredByHeader` is disabled.
+**Why:** Full security-header set via `next.config.ts headers()` — CSP,
+X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy,
+HSTS (verified). `/api/contact` does server-side validation + per-IP rate
+limiting. Secrets safe; XSS handled; `poweredByHeader` off.
 
-**Costing points:** **no Content-Security-Policy or security headers** at all
-(TD-001) — no X-Frame-Options, Referrer-Policy, Permissions-Policy, or HSTS. The
-contact form has client-side `required` only, no server-side validation (TD-004,
-though there's no backend yet).
+**Costing points:** CSP relies on `script-src 'unsafe-inline'` for the static
+inline theme/JSON-LD scripts (nonce-based CSP needs middleware); the rate limiter
+is per-instance.
 
-**To reach 85:** add a `netlify.toml [[headers]]` / `next.config headers()` block
-with CSP + the standard hardening headers.
+**To reach 95:** nonce-based CSP via middleware; a shared-store rate limiter.
 
-## Performance — 75/100
+## Performance — 82/100
 
-**Why:** Good posture for an animation-heavy site — route/code splitting, the
-three.js hero is `next/dynamic` `ssr:false` + lazy, fonts use `next/font` with
-`display: swap`, `removeConsole` in production, and shared first-load JS is a
-reasonable ~102 kB.
+**Why:** Code/route splitting, lazy `ssr:false` 3D hero, `next/font` with
+`display: swap`, prod `removeConsole`, ~102 kB shared first-load JS, and
+**Lighthouse is now measured in CI** with assertion budgets.
 
-**Costing points:** three.js still inflates the hero's first load (~180 kB on
-that path); **Lighthouse is never measured** (TD-006); no `next/image` / image
-optimization configured.
+**Costing points:** three.js still inflates the hero path (~180 kB); no
+`next/image` / image optimization.
 
-**To reach 90:** add a Lighthouse check in CI (target > 90); consider
-defer-until-idle and reduced mobile DPR for the canvas.
+**To reach 90:** defer the canvas until idle / reduce mobile DPR; adopt
+`next/image` once raster assets land.
 
-## Accessibility — 62/100
+## Accessibility — 78/100
 
-**Why:** Mostly semantic HTML, `lang="en"`, a single `h1`, decorative canvases
-marked `aria-hidden`, and some `aria-label`s on icon-only controls.
+**Why:** Skip-to-content link + `<main id="main">`, `lang="en"`, single `h1`,
+`aria-hidden` decorative canvases, labelled icon controls, and
+`prefers-reduced-motion` honored app-wide (`MotionConfig`, Lenis skip, counter
+short-circuit, CSS guards). Error states use `role="alert"`.
 
-**Costing points:** no skip-to-content link; ARIA coverage is incomplete (only
-~8 `aria-*` across the app); `prefers-reduced-motion` is honored in `globals.css`
-and `ParticleBackground` but **not** by the framer-motion reveals, counters,
-marquee, or hero (TD-012); never tested with a screen reader; contrast verified
-visually, not tooled.
+**Costing points:** ARIA coverage still incomplete; never tested with a screen
+reader; contrast verified visually, not tooled.
 
-**To reach 85:** add a skip link + landmarks, complete ARIA, gate motion on
-`useReducedMotion()`, and run an automated a11y pass (axe) in CI.
+**To reach 90:** complete ARIA + landmarks, run automated axe checks in CI, and
+do a screen-reader pass.
 
-## SEO — 85/100
+## SEO — 95/100
 
-**Why:** Rich `Metadata` (now sourced from `site.ts`), OpenGraph + Twitter card,
-JSON-LD `Person`, `sitemap.ts` + `robots.ts`, canonical URL, and `metadataBase`.
+**Why:** Rich metadata (sourced from `site.ts`), OpenGraph + Twitter cards now
+**generated** via `opengraph-image.tsx` / `twitter-image.tsx` (no more 404
+preview), JSON-LD `Person`, sitemap + robots (both sourced from `site.ts`),
+canonical, `metadataBase`. Lighthouse SEO is asserted ≥ 0.9 in CI.
 
-**Costing points:** the referenced `/og.png` is **missing** from `public/`
-(TD-011), so social/link previews 404 — a real dent for a portfolio whose value
-is being shared. `sitemap`/`robots` hardcode the URL instead of `site.ts`.
+**Costing points:** single-page site, so limited structured-content surface.
 
-**To reach 95:** ship a real `og.png` (or `opengraph-image` via `ImageResponse`).
+**To reach 100:** per-section/article structured data if the site grows.
 
-## Testing — 45/100
+## Testing — 82/100
 
-**Why:** Vitest + Testing Library are set up and wired into CI; there are unit
-tests (`cn`) and component tests (`Footer`, `SectionHeading`).
+**Why:** 26 Vitest tests (up from 9) — Hero, Navigation, ThemeToggle, Skills,
+Footer, SectionHeading, plus a `content ↔ docs` parity test that guards drift;
+Playwright E2E smoke (render, theme toggle, nav anchors) and Lighthouse both run
+in CI.
 
-**Costing points:** only **3 test files**; no integration or E2E tests; the new
-`src/content/*` modules are untested; no coverage gate. This is the weakest
-category and the biggest single lever on the overall score.
+**Costing points:** no coverage threshold gate; E2E is a thin smoke layer.
 
-**To reach 80:** Playwright smoke E2E (render, theme toggle, nav anchors), a
-`content ↔ docs` parity test, and broader component coverage (Hero, Navigation,
-ThemeToggle, Skills) with a coverage threshold.
+**To reach 90:** add a coverage gate and broaden E2E (contact flow, mobile menu).
 
-## Documentation — 96/100
+## Documentation — 97/100
 
-**Why:** Exceptional and rare. A canonical `docs/` knowledge base (profile,
-career, skills, projects, portfolio, architecture, governance), an `.ai/`
-machine-context layer, ADRs, this governance system (checklist, tech-debt,
-backlog, roadmap, audit, scorecard), enriched case studies, and per-skill notes.
-The repo is genuinely self-describing for humans and agents.
+**Why:** Canonical `docs/` knowledge base, `.ai/` machine context, ADRs, the full
+governance set (checklist, tech-debt, backlog, roadmap, audit, scorecard,
+maturity report), enriched case studies, and per-skill notes. A parity test now
+backs the docs↔content contract.
 
-**Costing points:** docs↔content sync is still manual (no enforcement), so docs
-_can_ technically drift from `src/content/*` until a parity check exists.
+**Costing points:** docs↔content sync is test-guarded but not generated.
 
-**To reach 100:** automate the docs↔content parity check.
+**To reach 100:** generate content from docs (or vice-versa).
 
-## Developer Experience — 92/100
+## Developer Experience — 96/100
 
-**Why:** Full quality gate (Prettier + ESLint flat config + Vitest + Husky +
-lint-staged) and GitHub Actions CI (format-check, lint, types, test, build) with
-concurrency cancellation. TypeScript `strict`, **zero `any`**, **zero
-`console.*`**, path aliases, `.nvmrc`, an AI operating system (`.claude/`,
-`.cursor/`, `mcp.json`, `llms.txt`), and a typed content layer that makes content
-edits a one-file change.
+**Why:** Full quality gate (Prettier + ESLint flat config via the ESLint CLI +
+Vitest + Playwright + Husky + lint-staged + **commitlint**) and CI (format, lint,
+types, unit, E2E, Lighthouse) with concurrency cancellation. TypeScript `strict`,
+zero `any`, zero `console.*`, path aliases, `.nvmrc`, an AI operating system, and
+a typed content layer.
 
-**Costing points:** no commit-message linting; no CI deploy gate/preview;
-`next lint` is deprecated (migrate to the ESLint CLI before Next 16).
+**Costing points:** no CI deploy gate/preview.
 
-**To reach 98:** add commitlint + a commit-msg hook and migrate off `next lint`.
+**To reach 100:** add a deploy preview gate.

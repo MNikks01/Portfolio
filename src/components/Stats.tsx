@@ -5,6 +5,7 @@ import {
   useInView,
   useMotionValue,
   useTransform,
+  useReducedMotion,
   animate,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -50,18 +51,23 @@ function Counter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
+  const reduceMotion = useReducedMotion();
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (v) => Math.floor(v).toString());
 
   useEffect(() => {
-    if (inView) {
-      const controls = animate(mv, value, {
-        duration: 1.6,
-        ease: [0.16, 1, 0.3, 1],
-      });
-      return controls.stop;
+    if (!inView) return;
+    // Reduced motion: jump straight to the final value, no count-up.
+    if (reduceMotion) {
+      mv.set(value);
+      return;
     }
-  }, [inView, mv, value]);
+    const controls = animate(mv, value, {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+    });
+    return controls.stop;
+  }, [inView, mv, value, reduceMotion]);
 
   return (
     <div

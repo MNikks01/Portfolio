@@ -57,20 +57,13 @@ export const metadata: Metadata = {
     title,
     description,
     siteName: site.name,
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
+    // og:image is provided by src/app/opengraph-image.tsx (auto-wired by Next).
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    // twitter:image is provided by src/app/twitter-image.tsx (auto-wired).
     creator: "@nikhilmeshram",
   },
   robots: {
@@ -137,11 +130,19 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a
+          href="#main"
+          className="sr-only z-[300] rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-bg-deep focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content
+        </a>
         <LoadingScreen />
         <CustomCursor />
         <SmoothScroll>
           <Navigation />
-          <main className="relative z-10">{children}</main>
+          <main id="main" className="relative z-10">
+            {children}
+          </main>
           <Footer />
         </SmoothScroll>
       </body>

@@ -6,41 +6,42 @@ Linked debt: [technical-debt.md](./technical-debt.md).
 
 ## P1
 
-- [ ] **Add Content-Security-Policy + security headers** (TD-001)
-- [ ] **Add a global error boundary** — `app/error.tsx` + `global-error.tsx` (TD-002)
+_None open._
 
 ## P2
 
-- [ ] **Fix `AISection.tsx` token-rule violation** — replace literal
-      `white`/`zinc`/hex with semantic tokens so light theme is complete (TD-010)
-- [ ] **Add a real `public/og.png` (1200×630)** — referenced in metadata but
-      missing, so social previews 404 (TD-011) → see `portfolio/assets-plan.md`
-- [ ] **Wire the contact form to a real backend** (Resend / `/api/contact`) with
-      validation + rate limiting (TD-004)
-- [ ] **Add Playwright E2E smoke tests** — home renders, theme toggle, nav anchors
-      (TD-005)
-- [ ] **Add Lighthouse check in CI** (or scheduled), target > 90 (TD-006)
-- [ ] **Expand component test coverage** — Hero, Navigation, ThemeToggle, Skills;
-      add a `content ↔ docs` parity test
-- [ ] **Audit & optimize first-load JS / three.js** (defer-until-idle, mobile DPR)
+- [ ] **Audit & optimize first-load JS / three.js** (defer-until-idle, mobile
+      DPR) — Lighthouse now measures it; reduction still pending (TD-006)
+- [ ] **Nonce-based CSP via middleware** — replace `script-src 'unsafe-inline'`
+      now that headers ship (residual of TD-001)
 
 ## P3
 
-- [ ] **Remove or repurpose `About.tsx`** (TD-007)
-- [ ] **Extract a shared `SectionCard` component** (TD-008)
-- [ ] **Honor `prefers-reduced-motion`** across framer-motion reveals, counters,
-      marquee, and the 3D hero (TD-012)
-- [ ] **Adopt `next/image`** where images appear (paired with the og.png work)
-- [ ] **Accessibility pass** — skip-to-content link, full ARIA + screen-reader test
-- [ ] **Commit-message linting** (commitlint + commit-msg hook)
+- [ ] **Adopt `next/image`** where images appear
+- [ ] **Full accessibility pass** — complete ARIA coverage + screen-reader test
+      (skip-to-content link already shipped)
 - [ ] **Review skill levels for accuracy** (TD-009)
-- [ ] **Source `sitemap.ts`/`robots.ts` URL from `site.ts`** (consistency)
-- [ ] **Generate `src/content/*` from `docs/` (or test the sync)** — the content
-      layer is currently hand-synced; add a generator or a test that asserts
-      `content ↔ docs` parity so they cannot drift (residual of TD-003)
+- [ ] **Broaden `SectionCard` adoption / shared primitives** (residual of TD-008)
+- [ ] **Generate `src/content/*` from `docs/`** — a parity test now guards drift;
+      a generator would remove the manual sync entirely (residual of TD-003)
 
 ## Done
 
+- [x] **Security headers + CSP** — `next.config.ts headers()` (TD-001)
+- [x] **Global error boundary** — `app/error.tsx` + `global-error.tsx` (TD-002)
+- [x] **Fix `AISection.tsx` token-rule violation** (TD-010)
+- [x] **OG/Twitter image** via `opengraph-image.tsx` `ImageResponse` (TD-011)
+- [x] **Contact backend** — `/api/contact` with validation + rate limiting (TD-004)
+- [x] **Playwright E2E smoke tests** + expanded Vitest coverage (9 → 26) +
+      `content ↔ docs` parity test (TD-005)
+- [x] **Lighthouse check in CI** with assertion budgets (TD-006)
+- [x] **`prefers-reduced-motion`** honored app-wide via `MotionConfig` (TD-012)
+- [x] **Skip-to-content link** + `<main id="main">`
+- [x] **Remove dead `About.tsx`** (TD-007)
+- [x] **Shared `SectionCard`** adopted in the uniform grid sections (TD-008)
+- [x] **Commit-message linting** (commitlint + commit-msg hook)
+- [x] **Source `sitemap.ts`/`robots.ts` URL from `site.ts`**
+- [x] **Migrate off deprecated `next lint`** → ESLint CLI (`eslint .`)
 - [x] **Migrate portfolio content to a docs-sourced content layer** (TD-003,
       ADR-007) — 13 section modules + `site.ts` under `src/content/*`
 - [x] Prettier + ESLint flat config + Husky + lint-staged

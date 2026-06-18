@@ -88,4 +88,8 @@ className="section-pad relative overflow-hidden">`, a `<SectionHeading>`, and
 
 - The 3D canvas can throw under software rendering / lost GL context; that's why
   `CanvasBoundary` + a `webglcontextlost` handler exist. Don't remove them.
-- `About.tsx` exists but is no longer rendered (superseded by `FounderJourney`).
+- Section content lives in `src/content/*` (typed modules + `site.ts`); update
+  the matching `docs/` file first, then the content module (ADR-007). A
+  `content ↔ docs` parity test guards against drift.
+- The contact form posts to `/api/contact` (validation + rate limit); set
+  `RESEND_API_KEY` for real delivery.

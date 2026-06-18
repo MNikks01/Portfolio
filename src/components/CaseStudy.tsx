@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import SectionCard from "./SectionCard";
 import { roles, metrics, tech, phases } from "@/content/case-study";
+
+const MotionSectionCard = motion.create(SectionCard);
 
 export default function CaseStudy() {
   return (
@@ -83,18 +86,16 @@ export default function CaseStudy() {
           {phases.map((p, i) => {
             const Icon = p.icon;
             return (
-              <motion.div
+              <MotionSectionCard
                 key={p.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-70px" }}
                 transition={{ duration: 0.55, delay: 0.04 * i }}
-                className="group relative overflow-hidden rounded-2xl border border-overlay/10 bg-overlay/[0.03] p-6 transition hover:-translate-y-0.5"
+                accent={p.color}
+                glowClassName="-right-10 -top-10 h-28 w-28 opacity-20 group-hover:opacity-40"
+                className="p-6 hover:-translate-y-0.5"
               >
-                <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-20 blur-2xl transition group-hover:opacity-40"
-                  style={{ background: p.color }}
-                />
                 <div className="flex items-center gap-3">
                   <span
                     className="grid h-10 w-10 place-items-center rounded-xl"
@@ -112,7 +113,7 @@ export default function CaseStudy() {
                 <p className="mt-3 text-sm leading-relaxed text-muted">
                   {p.body}
                 </p>
-              </motion.div>
+              </MotionSectionCard>
             );
           })}
         </div>

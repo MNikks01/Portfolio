@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import SectionCard from "./SectionCard";
 import { items } from "@/content/building-now";
+
+const MotionSectionCard = motion.create(SectionCard);
 
 export default function BuildingNow() {
   return (
@@ -31,18 +34,16 @@ export default function BuildingNow() {
           {items.map((it, i) => {
             const Icon = it.icon;
             return (
-              <motion.div
+              <MotionSectionCard
                 key={it.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-70px" }}
                 transition={{ duration: 0.55, delay: (i % 3) * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-overlay/10 bg-overlay/[0.03] p-6 transition hover:-translate-y-1"
+                accent={it.color}
+                glowClassName="-right-10 -top-10 h-28 w-28 opacity-25 group-hover:opacity-50"
+                className="p-6 hover:-translate-y-1"
               >
-                <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-25 blur-2xl transition group-hover:opacity-50"
-                  style={{ background: it.color }}
-                />
                 <span
                   className="grid h-10 w-10 place-items-center rounded-xl"
                   style={{
@@ -58,7 +59,7 @@ export default function BuildingNow() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {it.desc}
                 </p>
-              </motion.div>
+              </MotionSectionCard>
             );
           })}
         </div>

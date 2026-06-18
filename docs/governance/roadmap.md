@@ -5,33 +5,40 @@ Engineering roadmap for the repository. Pulls from
 
 ## Now (in progress / immediate)
 
-- Security headers + CSP (P1, TD-001)
-- Global error boundary `app/error.tsx` + `global-error.tsx` (P1, TD-002)
-- Fix `AISection.tsx` token-rule violation (P2, TD-010)
-- Add a real `public/og.png` — referenced but missing (P2, TD-011)
-- Remove dead `About.tsx` (P3, quick win, TD-007)
+_All P1 hardening shipped (see Recently shipped). Next focus is performance._
 
 ## Next (planned)
 
-- Contact form backend with validation + rate limiting (P2, TD-004)
-- Playwright E2E smoke + Lighthouse CI (P2, TD-005/006)
-- Broaden component test coverage + `content ↔ docs` parity test (P2)
+- First-load JS / three.js optimization pass — defer-until-idle, mobile DPR
+  (P2, TD-006)
+- Nonce-based CSP via middleware (replace `script-src 'unsafe-inline'`) (P2,
+  residual TD-001)
 
 ## Later (someday / aspirational)
 
-- First-load JS / three.js optimization pass (P2, TD-006)
-- Honor `prefers-reduced-motion` everywhere (P3, TD-012)
-- Full accessibility pass + skip link (P3)
-- Shared `SectionCard` refactor (P3, TD-008)
-- `next/image` adoption; source `sitemap/robots` URL from `site.ts` (P3)
-- Generate `src/content/*` from `docs/` or add a parity test (P3, residual TD-003)
+- Full accessibility pass — complete ARIA + screen-reader test (P3)
+- `next/image` adoption (P3)
+- Broaden `SectionCard` adoption / shared primitives (P3, residual TD-008)
+- Generate `src/content/*` from `docs/` to remove the manual sync (P3,
+  residual TD-003)
+- Review skill levels for accuracy (P3, TD-009)
 - Analytics + visitor insights
 - Optional: i18n, blog/notes section, case-study detail pages
 
-### Recently shipped
+### Recently shipped (2026-06-18)
 
-- ✅ Typed content layer (`src/content/*` + `site.ts`) — ADR-007, TD-003 Done
-  (2026-06-18)
+- ✅ Security headers + CSP (TD-001)
+- ✅ Global error boundary — `error.tsx` + `global-error.tsx` (TD-002)
+- ✅ Contact backend — `/api/contact` validation + rate limiting (TD-004)
+- ✅ Playwright E2E + expanded Vitest coverage + parity test (TD-005)
+- ✅ Lighthouse CI with budgets (TD-006)
+- ✅ `AISection.tsx` token-rule fix (TD-010)
+- ✅ Generated OG/Twitter image (TD-011)
+- ✅ `prefers-reduced-motion` honored app-wide (TD-012)
+- ✅ Skip-to-content link; removed dead `About.tsx` (TD-007)
+- ✅ Shared `SectionCard` for the uniform grids (TD-008)
+- ✅ commitlint; `sitemap`/`robots` from `site.ts`; migrated off `next lint`
+- ✅ Typed content layer (`src/content/*` + `site.ts`) — ADR-007, TD-003
 
 ---
 

@@ -15,18 +15,38 @@ import SectionHeading from "./SectionHeading";
 import { site } from "@/content/site";
 
 export default function Contact() {
-  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
+  const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState("loading");
-    // Simulate request — wire to your endpoint of choice (Resend, /api/contact, etc.)
-    setTimeout(() => {
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (!res.ok || !data.ok) {
+        throw new Error(
+          data.error || "Something went wrong. Please try again.",
+        );
+      }
       setState("success");
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setState("idle"), 4000);
-    }, 1100);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setState("error");
+    }
   };
 
   return (
@@ -124,8 +144,13 @@ export default function Contact() {
               required
             />
             <div className="mt-6 flex items-center justify-between gap-3">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-faint">
-                Secure · End-to-end · Personal
+              <p
+                role={state === "error" ? "alert" : undefined}
+                className={`font-mono text-[10px] uppercase tracking-widest ${
+                  state === "error" ? "text-brand-pink" : "text-faint"
+                }`}
+              >
+                {state === "error" ? error : "Secure · End-to-end · Personal"}
               </p>
               <button
                 type="submit"
@@ -133,7 +158,7 @@ export default function Contact() {
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-5 py-3 text-sm font-semibold text-bg-deep transition disabled:opacity-70"
               >
                 <AnimatePresence mode="wait" initial={false}>
-                  {state === "idle" && (
+                  {(state === "idle" || state === "error") && (
                     <motion.span
                       key="idle"
                       initial={{ y: 8, opacity: 0 }}
@@ -141,7 +166,7 @@ export default function Contact() {
                       exit={{ y: -8, opacity: 0 }}
                       className="inline-flex items-center gap-2"
                     >
-                      Send Message
+                      {state === "error" ? "Retry" : "Send Message"}
                       <Send className="h-4 w-4 transition group-hover:translate-x-0.5" />
                     </motion.span>
                   )}
