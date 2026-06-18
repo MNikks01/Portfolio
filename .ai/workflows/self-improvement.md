@@ -31,7 +31,13 @@ For each finding:
 3. Reflect sequencing in `docs/governance/roadmap.md` (Now/Next/Later).
 4. Flip the matching line in `docs/governance/production-checklist.md`.
 5. For non-trivial scans, append to `docs/governance/audit-report.md`.
+6. **Re-score `docs/governance/scorecard.md`** — update the affected category
+   score(s), the overall mean, the trend arrows, and the "Last scored" date so
+   the scorecard always reflects the latest audit. Scores move only with real
+   changes (a finding lowers the relevant category; a fix raises it).
 
 ## Principle
 
-Never silently ignore a gap — make it visible as a tracked item.
+Never silently ignore a gap — make it visible as a tracked item. Every audit
+ends with the full governance set in sync: **checklist, technical-debt, backlog,
+roadmap, audit-report, and scorecard.**

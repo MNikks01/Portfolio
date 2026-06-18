@@ -74,3 +74,38 @@ Tracked debt items. Format: Issue · Impact · Priority · Suggested Fix · Stat
 - **Priority:** P3
 - **Suggested Fix:** Periodically review `docs/skills/*` for accuracy.
 - **Status:** Open
+
+### TD-010 — `AISection.tsx` bypasses the design-token system
+
+- **Impact:** Uses literal `border-white/10`, `bg-[#0a0f1c]`, and `text-zinc-500/300`
+  instead of semantic tokens — violates the non-negotiable theming rule. The
+  "terminal" panel stays dark in light theme and won't follow future token
+  changes. Found in the 2026-06-18 post-refactor audit.
+- **Priority:** P2
+- **Suggested Fix:** Replace with `border-overlay/<a>`, `bg-bg-panel`/`bg-bg-deep`,
+  and `text-soft/muted/faint`. If an always-dark terminal is intentional, encode
+  it as a scoped, documented token rather than ad-hoc literals.
+- **Status:** Open
+
+### TD-011 — `og.png` referenced but missing
+
+- **Impact:** `src/app/layout.tsx` references `/og.png` in both OpenGraph and the
+  Twitter card, but `public/` contains only `resume.pdf`. Social/link previews
+  resolve to a 404 image — a visible quality gap for a portfolio whose job is to
+  be shared.
+- **Priority:** P2
+- **Suggested Fix:** Add a real `public/og.png` (1200×630) — or generate one with
+  the Next.js `opengraph-image` convention (`ImageResponse`). See
+  [../portfolio/assets-plan.md](../portfolio/assets-plan.md).
+- **Status:** Open
+
+### TD-012 — `prefers-reduced-motion` only partially honored
+
+- **Impact:** Honored in `globals.css` and `ParticleBackground`, but the
+  framer-motion section reveals, the marquee, the animated counters, and the 3D
+  hero animate regardless of the user's reduced-motion preference — an a11y and
+  vestibular-comfort gap.
+- **Priority:** P3
+- **Suggested Fix:** Gate motion on `useReducedMotion()` (framer-motion) for
+  reveals/counters/marquee and pause/freeze the hero when reduced motion is set.
+- **Status:** Open

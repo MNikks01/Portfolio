@@ -18,7 +18,8 @@ docs/
 ├── projects/       Per-project case studies + index
 ├── portfolio/      The content rendered on each portfolio section
 ├── architecture/   Engineering principles, ADRs, standards
-└── governance/     Production checklist, tech debt, backlog, roadmap, audit
+└── governance/     Checklist, tech-debt, backlog, roadmap, audit, scorecard,
+                    maturity report
 ```
 
 There is also a top-level [ARCHITECTURE.md](./ARCHITECTURE.md) describing the

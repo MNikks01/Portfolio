@@ -11,22 +11,30 @@ Linked debt: [technical-debt.md](./technical-debt.md).
 
 ## P2
 
+- [ ] **Fix `AISection.tsx` token-rule violation** — replace literal
+      `white`/`zinc`/hex with semantic tokens so light theme is complete (TD-010)
+- [ ] **Add a real `public/og.png` (1200×630)** — referenced in metadata but
+      missing, so social previews 404 (TD-011) → see `portfolio/assets-plan.md`
 - [ ] **Wire the contact form to a real backend** (Resend / `/api/contact`) with
       validation + rate limiting (TD-004)
 - [ ] **Add Playwright E2E smoke tests** — home renders, theme toggle, nav anchors
       (TD-005)
 - [ ] **Add Lighthouse check in CI** (or scheduled), target > 90 (TD-006)
-- [ ] **Expand component test coverage** — Hero, Navigation, ThemeToggle, Skills
+- [ ] **Expand component test coverage** — Hero, Navigation, ThemeToggle, Skills;
+      add a `content ↔ docs` parity test
 - [ ] **Audit & optimize first-load JS / three.js** (defer-until-idle, mobile DPR)
 
 ## P3
 
 - [ ] **Remove or repurpose `About.tsx`** (TD-007)
 - [ ] **Extract a shared `SectionCard` component** (TD-008)
-- [ ] **Add a real `public/og.png`** and adopt `next/image` where images appear
+- [ ] **Honor `prefers-reduced-motion`** across framer-motion reveals, counters,
+      marquee, and the 3D hero (TD-012)
+- [ ] **Adopt `next/image`** where images appear (paired with the og.png work)
 - [ ] **Accessibility pass** — skip-to-content link, full ARIA + screen-reader test
 - [ ] **Commit-message linting** (commitlint + commit-msg hook)
 - [ ] **Review skill levels for accuracy** (TD-009)
+- [ ] **Source `sitemap.ts`/`robots.ts` URL from `site.ts`** (consistency)
 - [ ] **Generate `src/content/*` from `docs/` (or test the sync)** — the content
       layer is currently hand-synced; add a generator or a test that asserts
       `content ↔ docs` parity so they cannot drift (residual of TD-003)
