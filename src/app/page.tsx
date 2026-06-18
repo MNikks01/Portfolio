@@ -1,9 +1,14 @@
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import FounderJourney from "@/components/FounderJourney";
+import BusinessEngineering from "@/components/BusinessEngineering";
 import Skills from "@/components/Skills";
+import SystemArchitect from "@/components/SystemArchitect";
 import Experience from "@/components/Experience";
+import CaseStudy from "@/components/CaseStudy";
 import Projects from "@/components/Projects";
+import BuildingNow from "@/components/BuildingNow";
 import AISection from "@/components/AISection";
+import WhyWorkWithMe from "@/components/WhyWorkWithMe";
 import Stats from "@/components/Stats";
 import Contact from "@/components/Contact";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -19,11 +24,16 @@ export default function Home() {
       <ParticleBackground />
       <Hero />
       <Marquee />
-      <About />
+      <FounderJourney />
+      <BusinessEngineering />
       <Skills />
+      <SystemArchitect />
       <Experience />
+      <CaseStudy />
       <Projects />
+      <BuildingNow />
       <AISection />
+      <WhyWorkWithMe />
       <Stats />
       <Contact />
     </>

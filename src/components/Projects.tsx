@@ -81,14 +81,13 @@ export default function Projects() {
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
-          eyebrow="Featured Work"
+          eyebrow="Products I've Built"
           title={
             <>
-              Production systems —{" "}
-              <span className="text-gradient">end to end</span>
+              Products, not just <span className="text-gradient">features</span>
             </>
           }
-          description="A selection of projects that span product, platform, and developer experience."
+          description="Each of these is a product I owned — thinking about the customer, the architecture, and the value delivered, not just the code. Role, problem, and impact up front."
         />
 
         <div className="mt-16 grid gap-8">

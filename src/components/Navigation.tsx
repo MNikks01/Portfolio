@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { href: "#about", label: "About" },
+  { href: "#founder", label: "Journey" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#ai", label: "AI" },
+  { href: "#casestudy", label: "Work" },
+  { href: "#now", label: "Building" },
   { href: "#contact", label: "Contact" },
 ];
 

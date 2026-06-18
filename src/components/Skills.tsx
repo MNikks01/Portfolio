@@ -8,6 +8,8 @@ import {
   Database,
   Cpu,
   Sparkles,
+  Smartphone,
+  Wrench,
 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
@@ -29,8 +31,19 @@ const categories: Category[] = [
       { name: "React", level: 96 },
       { name: "Next.js", level: 94 },
       { name: "TypeScript", level: 93 },
-      { name: "Redux", level: 88 },
-      { name: "Tailwind", level: 95 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "Redux Toolkit", level: 90 },
+      { name: "TanStack Query", level: 86 },
+      { name: "JavaScript", level: 95 },
+      { name: "Context API", level: 90 },
+      { name: "React Router", level: 90 },
+      { name: "Material UI", level: 85 },
+      { name: "Shadcn UI", level: 88 },
+      { name: "HTML5", level: 96 },
+      { name: "CSS3", level: 94 },
+      { name: "Responsive Design", level: 95 },
+      { name: "Accessibility", level: 88 },
+      { name: "Performance", level: 88 },
     ],
   },
   {
@@ -40,11 +53,21 @@ const categories: Category[] = [
     icon: Cpu,
     skills: [
       { name: "Node.js", level: 94 },
-      { name: "Express", level: 92 },
-      { name: "GraphQL", level: 86 },
-      { name: "Socket.IO", level: 85 },
+      { name: "Express.js", level: 93 },
+      { name: "REST APIs", level: 94 },
+      { name: "GraphQL", level: 88 },
+      { name: "Microservices", level: 86 },
+      { name: "Socket.IO", level: 88 },
       { name: "JWT", level: 90 },
       { name: "OAuth", level: 88 },
+      { name: "Auth & RBAC", level: 88 },
+      { name: "BullMQ", level: 84 },
+      { name: "RabbitMQ", level: 84 },
+      { name: "Webhooks", level: 84 },
+      { name: "Cron Jobs", level: 85 },
+      { name: "Payments", level: 80 },
+      { name: "File Processing", level: 85 },
+      { name: "Distributed Systems", level: 84 },
     ],
   },
   {
@@ -54,10 +77,14 @@ const categories: Category[] = [
     icon: Database,
     skills: [
       { name: "MongoDB", level: 92 },
-      { name: "PostgreSQL", level: 90 },
-      { name: "Redis", level: 84 },
+      { name: "Mongoose", level: 90 },
+      { name: "PostgreSQL", level: 88 },
       { name: "Prisma", level: 86 },
-      { name: "Firebase", level: 82 },
+      { name: "Redis", level: 84 },
+      { name: "Firebase", level: 86 },
+      { name: "Supabase", level: 82 },
+      { name: "Cloudinary", level: 86 },
+      { name: "MinIO", level: 80 },
     ],
   },
   {
@@ -68,22 +95,64 @@ const categories: Category[] = [
     skills: [
       { name: "Docker", level: 92 },
       { name: "Docker Compose", level: 90 },
-      { name: "Nginx", level: 80 },
       { name: "GitHub Actions", level: 88 },
-      { name: "Kubernetes", level: 78 },
-      { name: "AWS", level: 86 },
+      { name: "CI/CD", level: 88 },
+      { name: "Nginx", level: 82 },
+      { name: "AWS EC2", level: 85 },
+      { name: "AWS S3", level: 86 },
+      { name: "AWS RDS", level: 82 },
+      { name: "AWS ECS", level: 80 },
+      { name: "AWS ECR", level: 80 },
+      { name: "Prometheus", level: 80 },
+      { name: "Grafana", level: 82 },
+      { name: "Linux", level: 86 },
+      { name: "Monitoring", level: 84 },
+      { name: "Logging", level: 84 },
     ],
   },
   {
     id: "ai",
-    label: "AI & Tooling",
+    label: "AI Engineering",
     color: "#EC4899",
     icon: Sparkles,
     skills: [
       { name: "MCP", level: 92 },
-      { name: "Claude", level: 90 },
-      { name: "Cursor", level: 88 },
-      { name: "AI Agents", level: 86 },
+      { name: "Claude Code", level: 92 },
+      { name: "Cursor", level: 90 },
+      { name: "AI-Assisted Dev", level: 90 },
+      { name: "LLM Integration", level: 88 },
+      { name: "Prompt Engineering", level: 88 },
+      { name: "AI Workflows", level: 86 },
+      { name: "Developer Tooling", level: 88 },
+    ],
+  },
+  {
+    id: "mobile",
+    label: "Mobile",
+    color: "#F59E0B",
+    icon: Smartphone,
+    skills: [
+      { name: "React Native", level: 88 },
+      { name: "Expo", level: 86 },
+      { name: "React Navigation", level: 86 },
+      { name: "Push Notifications", level: 84 },
+      { name: "Cross-Platform", level: 86 },
+    ],
+  },
+  {
+    id: "tools",
+    label: "Tools",
+    color: "#22D3EE",
+    icon: Wrench,
+    skills: [
+      { name: "Git", level: 94 },
+      { name: "GitHub", level: 94 },
+      { name: "VS Code", level: 92 },
+      { name: "Cursor", level: 90 },
+      { name: "Postman", level: 90 },
+      { name: "Vercel", level: 88 },
+      { name: "Netlify", level: 88 },
+      { name: "Figma", level: 80 },
     ],
   },
 ];
@@ -221,6 +290,8 @@ function Constellation({ category }: { category: Category }) {
   const cx = size / 2;
   const cy = size / 2;
   const radius = 120;
+  // keep the orbit readable — show the category's signature skills
+  const nodes = category.skills.slice(0, 6);
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[320px]">
       <svg
@@ -248,8 +319,8 @@ function Constellation({ category }: { category: Category }) {
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           style={{ transformOrigin: `${cx}px ${cy}px` }}
         />
-        {category.skills.map((s, i) => {
-          const angle = (i / category.skills.length) * Math.PI * 2 - Math.PI / 2;
+        {nodes.map((s, i) => {
+          const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
           const x = cx + Math.cos(angle) * radius;
           const y = cy + Math.sin(angle) * radius;
           return (
