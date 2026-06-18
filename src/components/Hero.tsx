@@ -46,7 +46,7 @@ export default function Hero() {
       className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden"
     >
       {/* Background layers */}
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
+      <div className="grid-bg pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute inset-0 bg-radial-glow" />
       <div className="pointer-events-none absolute inset-x-0 -bottom-1 h-40 bg-gradient-to-b from-transparent to-bg-deep" />
 
@@ -129,23 +129,6 @@ export default function Hero() {
               </motion.span>
             ))}
           </span>
-          <span className="block">
-          {"Meshram".split("").map((c, i) => (
-            <motion.span
-              key={i}
-              initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
-              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              transition={{
-                delay: 2.25 + i * 0.05,
-                duration: 0.7,
-                ease: easeOutExpo,
-              }}
-              className="text-gradient inline-block"
-            >
-              {c}
-            </motion.span>
-          ))}
-          </span>
         </h1>
 
         <motion.div
@@ -182,7 +165,7 @@ export default function Hero() {
             className="btn-glow group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-bg-deep transition hover:scale-[1.02]"
           >
             View Projects
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a
             href="/resume.pdf"

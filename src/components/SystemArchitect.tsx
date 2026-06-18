@@ -25,22 +25,72 @@ const flow = [
 ];
 
 const capabilities = [
-  { icon: GitBranch, title: "Monorepos", desc: "TurboRepo workspaces with shared packages, typed contracts, and fast incremental builds.", color: "#22D3EE" },
-  { icon: Boxes, title: "Microservices", desc: "Independently deployable services with clear boundaries and resilient communication.", color: "#00D4FF" },
-  { icon: Network, title: "Distributed Systems", desc: "Designing for failure — retries, idempotency, and consistency trade-offs.", color: "#8B5CF6" },
-  { icon: Radio, title: "Event-Driven Architecture", desc: "Decoupled services that react to events instead of tight synchronous chains.", color: "#EC4899" },
-  { icon: ListChecks, title: "Queue-Based Processing", desc: "BullMQ & RabbitMQ for background jobs, fan-out, and high-throughput pipelines.", color: "#F59E0B" },
-  { icon: Plug, title: "API Design", desc: "Clean REST & GraphQL contracts, versioning, pagination, and predictable errors.", color: "#10B981" },
-  { icon: TrendingUp, title: "Scalability", desc: "Horizontal scaling, caching layers, and load-aware processing under real traffic.", color: "#22D3EE" },
-  { icon: ShieldCheck, title: "Security", desc: "JWT/OAuth, RBAC, input validation, and least-privilege access by default.", color: "#00D4FF" },
-  { icon: RefreshCw, title: "CI/CD", desc: "GitHub Actions pipelines, Dockerized builds, and automated deployments.", color: "#8B5CF6" },
-  { icon: Activity, title: "Monitoring", desc: "Prometheus + Grafana metrics, structured logging, and actionable alerts.", color: "#EC4899" },
+  {
+    icon: GitBranch,
+    title: "Monorepos",
+    desc: "TurboRepo workspaces with shared packages, typed contracts, and fast incremental builds.",
+    color: "#22D3EE",
+  },
+  {
+    icon: Boxes,
+    title: "Microservices",
+    desc: "Independently deployable services with clear boundaries and resilient communication.",
+    color: "#00D4FF",
+  },
+  {
+    icon: Network,
+    title: "Distributed Systems",
+    desc: "Designing for failure — retries, idempotency, and consistency trade-offs.",
+    color: "#8B5CF6",
+  },
+  {
+    icon: Radio,
+    title: "Event-Driven Architecture",
+    desc: "Decoupled services that react to events instead of tight synchronous chains.",
+    color: "#EC4899",
+  },
+  {
+    icon: ListChecks,
+    title: "Queue-Based Processing",
+    desc: "BullMQ & RabbitMQ for background jobs, fan-out, and high-throughput pipelines.",
+    color: "#F59E0B",
+  },
+  {
+    icon: Plug,
+    title: "API Design",
+    desc: "Clean REST & GraphQL contracts, versioning, pagination, and predictable errors.",
+    color: "#10B981",
+  },
+  {
+    icon: TrendingUp,
+    title: "Scalability",
+    desc: "Horizontal scaling, caching layers, and load-aware processing under real traffic.",
+    color: "#22D3EE",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security",
+    desc: "JWT/OAuth, RBAC, input validation, and least-privilege access by default.",
+    color: "#00D4FF",
+  },
+  {
+    icon: RefreshCw,
+    title: "CI/CD",
+    desc: "GitHub Actions pipelines, Dockerized builds, and automated deployments.",
+    color: "#8B5CF6",
+  },
+  {
+    icon: Activity,
+    title: "Monitoring",
+    desc: "Prometheus + Grafana metrics, structured logging, and actionable alerts.",
+    color: "#EC4899",
+  },
 ];
 
 export default function SystemArchitect() {
   return (
     <section id="architecture" className="section-pad relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Technical Architecture"
@@ -75,9 +125,14 @@ export default function SystemArchitect() {
                 >
                   <span
                     className="h-2.5 w-2.5 shrink-0 rounded-full"
-                    style={{ background: node.color, boxShadow: `0 0 12px ${node.color}` }}
+                    style={{
+                      background: node.color,
+                      boxShadow: `0 0 12px ${node.color}`,
+                    }}
                   />
-                  <span className="text-sm font-medium text-soft">{node.label}</span>
+                  <span className="text-sm font-medium text-soft">
+                    {node.label}
+                  </span>
                 </motion.div>
                 {i < flow.length - 1 && (
                   <motion.div
@@ -92,9 +147,9 @@ export default function SystemArchitect() {
             ))}
           </div>
           <p className="mt-6 max-w-3xl text-sm text-muted">
-            Synchronous work returns fast; heavy or async work is pushed to queues
-            and processed by workers — keeping the API responsive while the system
-            scales horizontally, with metrics and logs on every hop.
+            Synchronous work returns fast; heavy or async work is pushed to
+            queues and processed by workers — keeping the API responsive while
+            the system scales horizontally, with metrics and logs on every hop.
           </p>
         </motion.div>
 
@@ -127,7 +182,9 @@ export default function SystemArchitect() {
                 <h3 className="mt-3 font-display text-base font-semibold text-ink">
                   {c.title}
                 </h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted">{c.desc}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted">
+                  {c.desc}
+                </p>
               </motion.div>
             );
           })}

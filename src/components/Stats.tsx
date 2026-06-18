@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+  animate,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const stats = [
@@ -11,13 +17,18 @@ const stats = [
   { value: 8, suffix: "+", label: "Products & Apps Built", color: "#F59E0B" },
   { value: 40, suffix: "+", label: "Technologies", color: "#22D3EE" },
   { value: 100, suffix: "K+", label: "Lines of Code", color: "#8B5CF6" },
-  { value: 1000, suffix: "+", label: "Hours Building Products", color: "#00D4FF" },
+  {
+    value: 1000,
+    suffix: "+",
+    label: "Hours Building Products",
+    color: "#00D4FF",
+  },
 ];
 
 export default function Stats() {
   return (
     <section className="relative overflow-hidden py-20">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 md:grid-cols-4">
         {stats.map((s, i) => (
           <motion.div

@@ -33,7 +33,7 @@ export default function LoadingScreen() {
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 0.6, ease: [0.7, 0, 0.3, 1] }}
         >
-          <div className="absolute inset-0 grid-bg opacity-40" />
+          <div className="grid-bg absolute inset-0 opacity-40" />
           <div className="relative flex flex-col items-center gap-6">
             <motion.div
               initial={{ scale: 0.6, opacity: 0 }}

@@ -19,7 +19,8 @@ const chapters = [
     color: "#EC4899",
     icon: Handshake,
     body: "I didn't start in code — I started in the market. Selling, negotiating, and sitting across the table from customers taught me what businesses actually pay for and where they hurt.",
-    takeaway: "Learned to listen to customer problems before proposing solutions.",
+    takeaway:
+      "Learned to listen to customer problems before proposing solutions.",
   },
   {
     phase: "Chapter 02 · The Pivot",
@@ -27,7 +28,8 @@ const chapters = [
     color: "#22D3EE",
     icon: Code2,
     body: "I kept seeing problems that software could solve — so I taught myself to build it. React, then the full MERN stack, learned end-to-end while shipping real things.",
-    takeaway: "Turned business intuition into the ability to build the solution myself.",
+    takeaway:
+      "Turned business intuition into the ability to build the solution myself.",
   },
   {
     phase: "Chapter 03 · Building",
@@ -43,7 +45,8 @@ const chapters = [
     color: "#8B5CF6",
     icon: Rocket,
     body: "I built and launched an education platform — and ran every side of it. Product, engineering, sales, demos to school administrators, customer discovery, and iterating on real feedback.",
-    takeaway: "Wore every hat: founder, PM, full-stack engineer, sales, customer success.",
+    takeaway:
+      "Wore every hat: founder, PM, full-stack engineer, sales, customer success.",
   },
   {
     phase: "Chapter 05 · Senior Engineer",
@@ -69,7 +72,11 @@ export default function FounderJourney() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const lineHeight = useTransform(scrollYProgress, [0.05, 0.95], ["0%", "100%"]);
+  const lineHeight = useTransform(
+    scrollYProgress,
+    [0.05, 0.95],
+    ["0%", "100%"],
+  );
 
   return (
     <section id="founder" className="section-pad relative overflow-hidden">
@@ -117,7 +124,7 @@ export default function FounderJourney() {
                     </div>
                   </div>
 
-                  <div className="group relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-0.5 md:p-7">
+                  <div className="glass group relative overflow-hidden rounded-2xl p-6 transition hover:-translate-y-0.5 md:p-7">
                     <div
                       className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full opacity-25 blur-3xl transition group-hover:opacity-40"
                       style={{ background: c.color }}
@@ -137,7 +144,10 @@ export default function FounderJourney() {
                     <div className="mt-4 inline-flex items-start gap-2 rounded-xl border border-overlay/10 bg-overlay/[0.03] px-3 py-2">
                       <span
                         className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: c.color, boxShadow: `0 0 8px ${c.color}` }}
+                        style={{
+                          background: c.color,
+                          boxShadow: `0 0 8px ${c.color}`,
+                        }}
                       />
                       <span className="text-xs text-soft">{c.takeaway}</span>
                     </div>

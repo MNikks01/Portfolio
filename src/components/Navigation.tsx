@@ -102,11 +102,7 @@ export default function Navigation() {
               onClick={() => setOpen((v) => !v)}
               className="grid h-9 w-9 place-items-center rounded-lg bg-overlay/5 ring-1 ring-overlay/10"
             >
-              {open ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <Menu className="h-4 w-4" />
-              )}
+              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </nav>
@@ -121,7 +117,7 @@ export default function Navigation() {
             : { y: -20, opacity: 0, pointerEvents: "none" }
         }
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-x-4 top-20 z-40 rounded-2xl glass p-4 md:hidden"
+        className="glass fixed inset-x-4 top-20 z-40 rounded-2xl p-4 md:hidden"
       >
         <ul className="grid gap-1">
           {links.map((l) => (

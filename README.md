@@ -1,87 +1,99 @@
-# Nikhil Meshram — Portfolio
+# Nikhil — Portfolio
 
-Senior Full Stack Engineer portfolio. Apple-level polish, Stripe-level design, Linear-level animations.
+A single-page portfolio that positions Nikhil as a **founder, product engineer,
+technical architect, and AI engineer** — not just another MERN developer. Built
+with Next.js, a token-driven dark/light design system, motion throughout, and a
+WebGL hero.
 
-## Stack
+> Live: <https://the-tech-nik.netlify.app>
 
-- **Next.js 15** (App Router, TypeScript)
-- **Tailwind CSS 3.4** (custom design tokens, gradients, glow effects)
-- **Framer Motion** (page-load sequence, scroll-triggered reveals, magnetic interactions)
-- **GSAP** (advanced timeline support, included for extension)
-- **Three.js + React Three Fiber + drei** (hero technology sphere, particle field, orbit rings)
-- **Lenis** (smooth scroll)
-- **Lucide Icons**
+[![CI](https://github.com/MNikks01/Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/MNikks01/Portfolio/actions/workflows/ci.yml)
 
-## Run
+## Tech stack
+
+- **Next.js 15** (App Router) · **React 19** · **TypeScript**
+- **Tailwind CSS 3.4** with CSS-variable design tokens (dark + light themes)
+- **Framer Motion** (load sequence, scroll reveals, magnetic interactions)
+- **Three.js + React Three Fiber + drei** (holographic hero core)
+- **Lenis** smooth scroll · **Lucide** icons
+- **Vitest** + **Testing Library** · **ESLint** · **Prettier** · **Husky** ·
+  **lint-staged** · **GitHub Actions** CI
+- Deployed on **Netlify** (auto-deploy from `main`)
+
+## Getting started
 
 ```bash
-# 1. install
-npm install
-
-# 2. dev
-npm run dev
-
-# 3. production build
-npm run build
-npm start
+npm install          # installs deps and sets up git hooks (husky)
+npm run dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Scripts
 
-## Project Structure
+| Script                  | Description                  |
+| ----------------------- | ---------------------------- |
+| `npm run dev`           | Start the dev server         |
+| `npm run build`         | Production build             |
+| `npm start`             | Serve the production build   |
+| `npm run lint`          | ESLint (Next flat config)    |
+| `npm run lint:fix`      | ESLint with autofix          |
+| `npm run typecheck`     | TypeScript, no emit          |
+| `npm run format`        | Prettier write               |
+| `npm run format:check`  | Prettier check (CI)          |
+| `npm test`              | Run unit tests once (Vitest) |
+| `npm run test:watch`    | Vitest watch mode            |
+| `npm run test:coverage` | Tests with coverage          |
+
+## Quality gates
+
+- **Pre-commit:** Husky runs `lint-staged` (ESLint + Prettier on staged files).
+- **CI:** GitHub Actions runs format-check → lint → typecheck → test → build on
+  every push and PR to `main`.
+
+## Project structure
 
 ```
 src/
   app/
-    layout.tsx        # Fonts, metadata, JSON-LD, OG, providers
-    page.tsx          # Section composition
-    globals.css       # Design tokens, utilities, glow, scrollbar
-    sitemap.ts
-    robots.ts
+    layout.tsx        # fonts, metadata, JSON-LD, OG, no-flash theme script
+    page.tsx          # section composition
+    globals.css       # design tokens (dark + .light), utilities, glow
+    sitemap.ts · robots.ts
   components/
-    Hero.tsx              # 3D sphere, animated headline, CTAs
-    About.tsx             # Animated timeline with scroll progress
-    Skills.tsx            # Constellation viz + interactive categories
-    Experience.tsx        # Animated tabbed work history
-    Projects.tsx          # 3D tilt cards with architecture viz
-    AISection.tsx         # MCP/Claude/Cursor + agent workflow
-    Stats.tsx             # Counter animations
-    Contact.tsx           # Modern form with success animation
-    Navigation.tsx        # Sticky glass nav
-    Footer.tsx
-    CustomCursor.tsx      # Magnetic cursor with hover variant
-    LoadingScreen.tsx     # Intro reveal
-    SmoothScroll.tsx      # Lenis provider
-    ScrollProgress.tsx    # Top progress bar
-    Marquee.tsx           # Infinite tech marquee
-    ParticleBackground.tsx # Canvas neural network
-    GridBackground.tsx     # Floating orbs + scanlines
-    SectionHeading.tsx
+    Hero · FounderJourney · BusinessEngineering · Skills · SystemArchitect
+    Experience · CaseStudy · Projects · BuildingNow · AISection
+    WhyWorkWithMe · Stats · Contact
+    Navigation · Footer · SectionHeading · ThemeToggle · Marquee
+    ParticleBackground · GridBackground · CustomCursor · LoadingScreen
+    ScrollProgress · SmoothScroll
     three/
-      TechSphere.tsx      # R3F scene
-  lib/
-    utils.ts
+      TechSphere.tsx     # R3F scene
+      CanvasBoundary.tsx # isolates WebGL failures
+  lib/utils.ts
 ```
+
+See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for the design-token system,
+theming, and section model. Contributors and AI agents: read
+[CONTRIBUTING.md](./CONTRIBUTING.md), [CLAUDE.md](./CLAUDE.md), and
+[AGENTS.md](./AGENTS.md).
+
+## Theming
+
+The site is dark by default with a light theme toggled via a `light` class on
+`<html>` (persisted to `localStorage`, respects `prefers-color-scheme`, applied
+before paint to avoid flash). All colors are driven by CSS-variable tokens so
+both themes work without per-component overrides.
 
 ## Replace before shipping
 
-- `public/resume.pdf` — drop your actual resume here.
-- `public/og.png` — 1200×630 OG image.
-- `src/app/layout.tsx` — update `url` constant if hosting on a different domain.
+- `public/resume.pdf` — the actual resume (the "Download Resume" CTA links here).
+- `public/og.png` — 1200×630 social preview image.
+- `src/app/layout.tsx` — update the `url` constant for the production domain.
 
-## Performance
+## Testing
 
-- Three.js scene is lazy-loaded via `next/dynamic` with `ssr: false`.
-- Particle canvas respects `prefers-reduced-motion`.
-- Fonts loaded via `next/font` with `display: swap`.
-- Lighthouse target: 90+ across the board.
-
-## SEO
-
-- App Router `metadata` API
-- OpenGraph + Twitter cards
-- JSON-LD Person schema injected at the root
-- Generated `sitemap.xml` and `robots.txt`
+Tests live next to source as `*.test.ts(x)` and run on **jsdom** via Vitest.
+`vitest.setup.ts` mocks `matchMedia`, `IntersectionObserver`, and
+`ResizeObserver` so motion/browser components render in tests.
 
 ## License
 

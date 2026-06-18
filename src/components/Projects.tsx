@@ -26,7 +26,13 @@ const projects = [
     ],
     icon: Sparkles,
     accent: "#EC4899",
-    architecture: ["Mobile", "GraphQL Gateway", "Auth", "Real-time", "Firebase"],
+    architecture: [
+      "Mobile",
+      "GraphQL Gateway",
+      "Auth",
+      "Real-time",
+      "Firebase",
+    ],
   },
   {
     name: "Revize Accessibility Platform",
@@ -78,7 +84,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="section-pad relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Products I've Built"
@@ -182,7 +188,7 @@ function ProjectCard({
             ))}
           </div>
 
-          <div className="mt-8 grid grid-cols-3 gap-3 max-w-md">
+          <div className="mt-8 grid max-w-md grid-cols-3 gap-3">
             {project.metrics.map((m) => (
               <div
                 key={m.label}

@@ -1,7 +1,15 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Check, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Send,
+} from "lucide-react";
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 
@@ -234,7 +242,7 @@ function Field({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           rows={5}
-          className="mt-2 block w-full resize-none rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink placeholder:text-faint outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
+          className="mt-2 block w-full resize-none rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink outline-none transition placeholder:text-faint focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
         />
       ) : (
         <input
@@ -243,7 +251,7 @@ function Field({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="mt-2 block w-full rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink placeholder:text-faint outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
+          className="mt-2 block w-full rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink outline-none transition placeholder:text-faint focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
         />
       )}
     </label>

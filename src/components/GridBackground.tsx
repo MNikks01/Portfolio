@@ -23,7 +23,7 @@ export default function GridBackground() {
       />
 
       {/* Subtle moving grid */}
-      <div className="absolute inset-0 scanline opacity-50" />
+      <div className="scanline absolute inset-0 opacity-50" />
     </div>
   );
 }

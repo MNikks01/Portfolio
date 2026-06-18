@@ -22,7 +22,16 @@ const jobs = [
       "Owned DevOps: Dockerized services, GitHub Actions pipelines, and Prometheus/Grafana monitoring.",
       "Mentored engineers; introduced trunk-based development and feature-flagged releases.",
     ],
-    tech: ["TurboRepo", "Microservices", "RabbitMQ", "Puppeteer", "Docker", "MCP", "AWS", "Grafana"],
+    tech: [
+      "TurboRepo",
+      "Microservices",
+      "RabbitMQ",
+      "Puppeteer",
+      "Docker",
+      "MCP",
+      "AWS",
+      "Grafana",
+    ],
   },
   {
     company: "Softronix",
@@ -39,7 +48,16 @@ const jobs = [
       "Optimized APIs and database access, cutting key endpoint latency and improving UX.",
       "Owned end-to-end delivery: requirements, build, review, and production rollouts.",
     ],
-    tech: ["React", "Node.js", "Express", "GraphQL", "JWT", "OAuth", "Socket.IO", "MongoDB"],
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "GraphQL",
+      "JWT",
+      "OAuth",
+      "Socket.IO",
+      "MongoDB",
+    ],
   },
   {
     company: "ConnectEdApp",
@@ -56,7 +74,15 @@ const jobs = [
       "Visited 50+ schools for customer discovery and folded feedback into the roadmap.",
       "Owned the full loop: idea → validation → design → engineering → launch → sales → iteration.",
     ],
-    tech: ["React", "React Native", "Node.js", "GraphQL", "Firebase", "Socket.IO", "Cloudinary"],
+    tech: [
+      "React",
+      "React Native",
+      "Node.js",
+      "GraphQL",
+      "Firebase",
+      "Socket.IO",
+      "Cloudinary",
+    ],
   },
   {
     company: "RevoltCreations",
@@ -72,7 +98,13 @@ const jobs = [
       "Drove a 40% lift in retention via a structured customer feedback loop.",
       "Learned how businesses buy, what they value, and how to sell — skills most engineers never build.",
     ],
-    tech: ["Revenue Growth", "Sales", "Client Management", "Customer Communication", "Business Strategy"],
+    tech: [
+      "Revenue Growth",
+      "Sales",
+      "Client Management",
+      "Customer Communication",
+      "Business Strategy",
+    ],
   },
 ];
 
@@ -110,14 +142,20 @@ export default function Experience() {
                 {/* desktop icon tile */}
                 <span
                   className="hidden h-9 w-9 place-items-center rounded-xl lg:grid"
-                  style={{ background: `${j.color}1a`, boxShadow: `inset 0 0 0 1px ${j.color}40` }}
+                  style={{
+                    background: `${j.color}1a`,
+                    boxShadow: `inset 0 0 0 1px ${j.color}40`,
+                  }}
                 >
                   <Building2 className="h-4 w-4" style={{ color: j.color }} />
                 </span>
                 {/* mobile color dot */}
                 <span
                   className="h-2 w-2 shrink-0 rounded-full lg:hidden"
-                  style={{ background: j.color, boxShadow: `0 0 8px ${j.color}` }}
+                  style={{
+                    background: j.color,
+                    boxShadow: `0 0 8px ${j.color}`,
+                  }}
                 />
                 <span className="flex flex-col">
                   <span className="text-sm font-semibold leading-tight text-ink">
@@ -131,7 +169,10 @@ export default function Experience() {
                   <motion.span
                     layoutId="job-indicator"
                     className="absolute inset-y-2 right-2 hidden w-1 rounded-full lg:block"
-                    style={{ background: j.color, boxShadow: `0 0 10px ${j.color}` }}
+                    style={{
+                      background: j.color,
+                      boxShadow: `0 0 10px ${j.color}`,
+                    }}
                   />
                 )}
               </button>
@@ -154,8 +195,7 @@ export default function Experience() {
               {job.location}
             </div>
             <h3 className="mt-2 font-display text-2xl font-semibold text-ink md:text-3xl">
-              {job.role}{" "}
-              <span className="text-faint">·</span>{" "}
+              {job.role} <span className="text-faint">·</span>{" "}
               <span style={{ color: job.color }}>{job.company}</span>
             </h3>
             <p className="mt-3 max-w-2xl text-muted">{job.summary}</p>

@@ -6,6 +6,15 @@ dist
 .env*
 !.env.example
 .vercel
+.netlify
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# test coverage
+coverage
+
+# local-only agent/editor settings
+.claude/settings.local.json
+.idea
+*.log

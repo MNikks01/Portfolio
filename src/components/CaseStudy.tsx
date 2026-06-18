@@ -93,13 +93,16 @@ const phases = [
 export default function CaseStudy() {
   return (
     <section id="casestudy" className="section-pad relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Flagship Case Study"
           title={
             <>
-              ConnectEdApp — <span className="text-gradient">a startup I built end-to-end</span>
+              ConnectEdApp —{" "}
+              <span className="text-gradient">
+                a startup I built end-to-end
+              </span>
             </>
           }
           description="Not a side project. A product I founded, designed, engineered, launched, sold, and iterated on with real customers — every hat, start to finish."
@@ -112,7 +115,7 @@ export default function CaseStudy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl glass p-6 md:p-8"
+            className="glass relative overflow-hidden rounded-3xl p-6 md:p-8"
           >
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-pink/30 opacity-40 blur-3xl" />
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
@@ -192,7 +195,9 @@ export default function CaseStudy() {
                     {p.title}
                   </h3>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{p.body}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {p.body}
+                </p>
               </motion.div>
             );
           })}

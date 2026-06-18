@@ -24,17 +24,17 @@ const jetbrains = JetBrains_Mono({
 });
 
 const url = "https://nikhilmeshram.dev";
-const title = "Nikhil Meshram — Senior Full Stack Engineer";
+const title = "Nikhil — Senior Full Stack Engineer";
 const description =
   "Senior Full Stack Engineer building scalable systems, AI-powered developer tools, and modern cloud platforms. MERN, Node.js, AWS, Docker, Kubernetes, and AI engineering.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
-  title: { default: title, template: "%s — Nikhil Meshram" },
+  title: { default: title, template: "%s — Nikhil" },
   description,
-  applicationName: "Nikhil Meshram Portfolio",
-  authors: [{ name: "Nikhil Meshram", url }],
-  creator: "Nikhil Meshram",
+  applicationName: "Nikhil Portfolio",
+  authors: [{ name: "Nikhil", url }],
+  creator: "Nikhil",
   keywords: [
     "Senior Full Stack Engineer",
     "Node.js Developer",
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     url,
     title,
     description,
-    siteName: "Nikhil Meshram",
+    siteName: "Nikhil",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nikhil Meshram — Senior Full Stack Engineer",
+        alt: "Nikhil — Senior Full Stack Engineer",
       },
     ],
   },
@@ -94,7 +94,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Nikhil Meshram",
+    name: "Nikhil",
     url,
     jobTitle: "Senior Full Stack Engineer",
     email: "mailto:mnikks01@gmail.com",
@@ -134,7 +134,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-bg-deep text-fg antialiased">
+      <body className="bg-bg-deep font-sans text-fg antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

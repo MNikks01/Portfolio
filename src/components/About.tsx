@@ -58,7 +58,7 @@ export default function About() {
 
   return (
     <section id="about" className="section-pad relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-30" />
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="About"
@@ -110,8 +110,10 @@ export default function About() {
                 <div className="hidden md:block" />
 
                 {/* Card */}
-                <div className={`ml-10 md:ml-0 ${isRight ? "md:pr-8" : "md:pl-8"}`}>
-                  <div className="relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-0.5 hover:shadow-glow">
+                <div
+                  className={`ml-10 md:ml-0 ${isRight ? "md:pr-8" : "md:pl-8"}`}
+                >
+                  <div className="glass relative overflow-hidden rounded-2xl p-6 transition hover:-translate-y-0.5 hover:shadow-glow">
                     <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
                       {m.year}
                     </div>

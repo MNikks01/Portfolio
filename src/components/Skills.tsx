@@ -211,7 +211,10 @@ export default function Skills() {
                   {/* mobile color dot */}
                   <span
                     className="h-2 w-2 shrink-0 rounded-full lg:hidden"
-                    style={{ background: c.color, boxShadow: `0 0 8px ${c.color}` }}
+                    style={{
+                      background: c.color,
+                      boxShadow: `0 0 8px ${c.color}`,
+                    }}
                   />
                   <span className="flex flex-col">
                     <span className="text-sm font-semibold leading-tight text-ink">
@@ -238,7 +241,7 @@ export default function Skills() {
 
           {/* Constellation Viz */}
           <div className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-gradient-to-b from-overlay/[0.03] to-transparent p-6 md:p-10">
-            <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+            <div className="grid-bg pointer-events-none absolute inset-0 opacity-30" />
 
             <Constellation key={current.id} category={current} />
 
@@ -362,13 +365,7 @@ function Constellation({ category }: { category: Category }) {
             </g>
           );
         })}
-        <circle
-          cx={cx}
-          cy={cy}
-          r={20}
-          fill={category.color}
-          opacity="0.2"
-        />
+        <circle cx={cx} cy={cy} r={20} fill={category.color} opacity="0.2" />
         <circle
           cx={cx}
           cy={cy}

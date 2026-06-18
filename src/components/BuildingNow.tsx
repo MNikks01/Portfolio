@@ -94,7 +94,9 @@ export default function BuildingNow() {
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">
                   {it.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{it.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {it.desc}
+                </p>
               </motion.div>
             );
           })}

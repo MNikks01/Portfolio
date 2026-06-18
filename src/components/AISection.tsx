@@ -70,8 +70,16 @@ export default function AISection() {
                 <TypeLines
                   lines={[
                     [{ t: "$ ", c: "#22D3EE" }, { t: "mcp connect" }],
-                    [{ t: "✓ ", c: "#10B981" }, { t: "Linked: ", c: "#a1a1aa" }, { t: "claude · cursor · github · linear" }],
-                    [{ t: "$ ", c: "#22D3EE" }, { t: "agent run " }, { t: "review --pr 412", c: "#8B5CF6" }],
+                    [
+                      { t: "✓ ", c: "#10B981" },
+                      { t: "Linked: ", c: "#a1a1aa" },
+                      { t: "claude · cursor · github · linear" },
+                    ],
+                    [
+                      { t: "$ ", c: "#22D3EE" },
+                      { t: "agent run " },
+                      { t: "review --pr 412", c: "#8B5CF6" },
+                    ],
                     [{ t: "→ analyzing diff (134 files)", c: "#a1a1aa" }],
                     [{ t: "→ found 3 risks, 7 suggestions", c: "#EC4899" }],
                     [{ t: "→ posting structured review", c: "#a1a1aa" }],
@@ -136,28 +144,32 @@ export default function AISection() {
             Agentic workflow
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-5">
-            {["Plan", "Generate", "Verify", "Ship", "Observe"].map((step, i) => (
-              <div key={step} className="relative flex items-center gap-3">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-overlay/10 bg-overlay/5 font-mono text-xs text-brand-cyan">
-                  0{i + 1}
-                </div>
-                <div className="font-display text-sm font-semibold text-ink">
-                  {step}
-                  <div className="font-sans text-[10px] font-normal uppercase tracking-widest text-faint">
-                    {[
-                      "context · constraints",
-                      "code · tests · docs",
-                      "lint · type · review",
-                      "deploy · rollback",
-                      "metrics · feedback",
-                    ][i]}
+            {["Plan", "Generate", "Verify", "Ship", "Observe"].map(
+              (step, i) => (
+                <div key={step} className="relative flex items-center gap-3">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-overlay/10 bg-overlay/5 font-mono text-xs text-brand-cyan">
+                    0{i + 1}
                   </div>
+                  <div className="font-display text-sm font-semibold text-ink">
+                    {step}
+                    <div className="font-sans text-[10px] font-normal uppercase tracking-widest text-faint">
+                      {
+                        [
+                          "context · constraints",
+                          "code · tests · docs",
+                          "lint · type · review",
+                          "deploy · rollback",
+                          "metrics · feedback",
+                        ][i]
+                      }
+                    </div>
+                  </div>
+                  {i < 4 && (
+                    <Zap className="ml-auto hidden h-4 w-4 text-brand-cyan md:block" />
+                  )}
                 </div>
-                {i < 4 && (
-                  <Zap className="ml-auto hidden h-4 w-4 text-brand-cyan md:block" />
-                )}
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </motion.div>
       </div>
@@ -165,11 +177,7 @@ export default function AISection() {
   );
 }
 
-function TypeLines({
-  lines,
-}: {
-  lines: { t: string; c?: string }[][];
-}) {
+function TypeLines({ lines }: { lines: { t: string; c?: string }[][] }) {
   return (
     <>
       {lines.map((line, i) => (

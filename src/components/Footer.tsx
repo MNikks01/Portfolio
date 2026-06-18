@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
         <div>
           <div className="font-display text-2xl font-bold">
-            <span className="text-gradient">Nikhil Meshram</span>
+            <span className="text-gradient">Nikhil</span>
           </div>
           <p className="mt-1 text-sm text-faint">
             Senior Full Stack Engineer · AI · DevOps · Cloud
@@ -43,8 +43,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-overlay/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
-        © {new Date().getFullYear()} Nikhil Meshram · Built with Next.js,
-        Three.js & Framer Motion
+        © {new Date().getFullYear()} Nikhil · Built with Next.js, Three.js &
+        Framer Motion
       </div>
     </footer>
   );
