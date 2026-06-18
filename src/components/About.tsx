@@ -90,7 +90,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: 0.05 * i }}
-                className={`relative grid grid-cols-[24px_1fr] items-start gap-4 md:grid-cols-2 md:gap-12 ${
+                className={`relative grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-12 ${
                   isRight ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
