@@ -154,7 +154,16 @@ export default function TechSphere() {
     <Canvas
       camera={{ position: [0, 0, 7], fov: 42 }}
       dpr={[1, 1.8]}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      onCreated={({ gl }) => {
+        // keep a lost GL context (mobile backgrounding / GPU reset) from
+        // throwing and crashing the page — let it recover silently
+        gl.domElement.addEventListener(
+          "webglcontextlost",
+          (e) => e.preventDefault(),
+          false,
+        );
+      }}
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />

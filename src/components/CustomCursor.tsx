@@ -69,7 +69,7 @@ export default function CustomCursor() {
       </motion.div>
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink md:block"
         style={{ x, y }}
       />
     </>

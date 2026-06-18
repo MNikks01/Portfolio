@@ -73,7 +73,7 @@ export default function About() {
 
         <div ref={ref} className="relative mt-20 grid gap-10">
           {/* Center spine */}
-          <div className="absolute left-4 top-0 h-full w-px bg-white/10 md:left-1/2 md:-translate-x-1/2">
+          <div className="absolute left-4 top-0 h-full w-px bg-overlay/10 md:left-1/2 md:-translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
               className="w-full bg-gradient-to-b from-brand-blue via-brand-purple to-brand-pink shadow-[0_0_18px_rgba(0,212,255,0.7)]"
@@ -99,7 +99,7 @@ export default function About() {
                   className={`absolute left-4 top-2 z-10 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2`}
                 >
                   <div
-                    className="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-bg-deep"
+                    className="grid h-8 w-8 place-items-center rounded-full border border-overlay/20 bg-bg-deep"
                     style={{ boxShadow: `0 0 24px ${m.color}80` }}
                   >
                     <Icon className="h-4 w-4" style={{ color: m.color }} />
@@ -112,10 +112,10 @@ export default function About() {
                 {/* Card */}
                 <div className={`ml-10 md:ml-0 ${isRight ? "md:pr-8" : "md:pl-8"}`}>
                   <div className="relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-0.5 hover:shadow-glow">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
                       {m.year}
                     </div>
-                    <h3 className="mt-2 font-display text-xl font-semibold text-white">
+                    <h3 className="mt-2 font-display text-xl font-semibold text-ink">
                       {m.title}
                     </h3>
                     <div
@@ -124,7 +124,7 @@ export default function About() {
                     >
                       {m.company}
                     </div>
-                    <p className="mt-3 text-sm text-zinc-400">{m.desc}</p>
+                    <p className="mt-3 text-sm text-muted">{m.desc}</p>
                     <div
                       className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-30 blur-3xl"
                       style={{ background: m.color }}

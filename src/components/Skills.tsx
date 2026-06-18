@@ -120,8 +120,8 @@ export default function Skills() {
                   onClick={() => setActive(c.id)}
                   className={`group relative flex items-center gap-2 rounded-full border px-3.5 py-2 text-left transition-all lg:gap-3 lg:rounded-2xl lg:px-4 lg:py-3 ${
                     isActive
-                      ? "border-white/15 bg-white/5"
-                      : "border-white/5 hover:border-white/10 hover:bg-white/5"
+                      ? "border-overlay/15 bg-overlay/5"
+                      : "border-overlay/5 hover:border-overlay/10 hover:bg-overlay/5"
                   }`}
                   style={
                     isActive
@@ -145,10 +145,10 @@ export default function Skills() {
                     style={{ background: c.color, boxShadow: `0 0 8px ${c.color}` }}
                   />
                   <span className="flex flex-col">
-                    <span className="text-sm font-semibold leading-tight text-white">
+                    <span className="text-sm font-semibold leading-tight text-ink">
                       {c.label}
                     </span>
-                    <span className="hidden font-mono text-[10px] uppercase tracking-widest text-zinc-500 lg:block">
+                    <span className="hidden font-mono text-[10px] uppercase tracking-widest text-faint lg:block">
                       {c.skills.length} tech
                     </span>
                   </span>
@@ -168,7 +168,7 @@ export default function Skills() {
           </div>
 
           {/* Constellation Viz */}
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 md:p-10">
+          <div className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-gradient-to-b from-overlay/[0.03] to-transparent p-6 md:p-10">
             <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
 
             <Constellation key={current.id} category={current} />
@@ -180,17 +180,17 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.5 }}
-                  className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:-translate-y-0.5"
+                  className="group relative overflow-hidden rounded-xl border border-overlay/10 bg-overlay/[0.03] p-4 transition hover:-translate-y-0.5"
                 >
                   <div className="flex items-baseline justify-between">
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm font-medium text-ink">
                       {s.name}
                     </span>
-                    <span className="font-mono text-[10px] text-zinc-500">
+                    <span className="font-mono text-[10px] text-faint">
                       {s.level}%
                     </span>
                   </div>
-                  <div className="mt-3 h-[2px] w-full overflow-hidden rounded-full bg-white/10">
+                  <div className="mt-3 h-[2px] w-full overflow-hidden rounded-full bg-overlay/10">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${s.level}%` }}

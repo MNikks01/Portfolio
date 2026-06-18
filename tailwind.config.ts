@@ -18,9 +18,16 @@ const config: Config = {
           pink: "#EC4899",
         },
         bg: {
-          deep: "#030712",
-          panel: "#0B1120",
+          deep: "rgb(var(--bg) / <alpha-value>)",
+          panel: "rgb(var(--bg-panel) / <alpha-value>)",
         },
+        // theme-aware semantic tokens (flip between dark/light)
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        fg: "rgb(var(--base) / <alpha-value>)",
+        soft: "rgb(var(--soft) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        faint: "rgb(var(--faint) / <alpha-value>)",
+        overlay: "rgb(var(--overlay) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

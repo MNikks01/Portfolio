@@ -54,9 +54,9 @@ export default function AISection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/60 p-0"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0f1c] p-0"
           >
-            <div className="flex items-center gap-2 border-b border-white/5 px-5 py-3">
+            <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
@@ -94,7 +94,7 @@ export default function AISection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6, delay: i * 0.06 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:-translate-y-1"
+                  className="group relative overflow-hidden rounded-2xl border border-overlay/10 bg-overlay/[0.03] p-5 transition hover:-translate-y-1"
                   style={
                     {
                       // outline glow on hover
@@ -114,10 +114,10 @@ export default function AISection() {
                   >
                     <Icon className="h-5 w-5" style={{ color: p.color }} />
                   </span>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-white">
+                  <h3 className="mt-4 font-display text-lg font-semibold text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-zinc-400">{p.desc}</p>
+                  <p className="mt-2 text-sm text-muted">{p.desc}</p>
                 </motion.div>
               );
             })}
@@ -130,20 +130,20 @@ export default function AISection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8 }}
-          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-bg-deep via-bg-panel to-bg-deep p-6 md:p-10"
+          className="relative mt-10 overflow-hidden rounded-3xl border border-overlay/10 bg-gradient-to-r from-bg-deep via-bg-panel to-bg-deep p-6 md:p-10"
         >
-          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
             Agentic workflow
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-5">
             {["Plan", "Generate", "Verify", "Ship", "Observe"].map((step, i) => (
               <div key={step} className="relative flex items-center gap-3">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 font-mono text-xs text-brand-cyan">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-overlay/10 bg-overlay/5 font-mono text-xs text-brand-cyan">
                   0{i + 1}
                 </div>
-                <div className="font-display text-sm font-semibold text-white">
+                <div className="font-display text-sm font-semibold text-ink">
                   {step}
-                  <div className="font-sans text-[10px] font-normal uppercase tracking-widest text-zinc-500">
+                  <div className="font-sans text-[10px] font-normal uppercase tracking-widest text-faint">
                     {[
                       "context · constraints",
                       "code · tests · docs",

@@ -43,13 +43,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-6 md:p-8"
+            className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-gradient-to-br from-overlay/[0.04] to-transparent p-6 md:p-8"
           >
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-purple/30 opacity-50 blur-3xl" />
-            <h3 className="font-display text-2xl font-semibold text-white">
+            <h3 className="font-display text-2xl font-semibold text-ink">
               Let&apos;s talk
             </h3>
-            <p className="mt-2 text-sm text-zinc-400">
+            <p className="mt-2 text-sm text-muted">
               I usually reply within 24 hours.
             </p>
 
@@ -87,7 +87,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8"
+            className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-overlay/[0.03] p-6 md:p-8"
           >
             <div className="grid gap-5 md:grid-cols-2">
               <Field
@@ -115,13 +115,13 @@ export default function Contact() {
               required
             />
             <div className="mt-6 flex items-center justify-between gap-3">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-faint">
                 Secure · End-to-end · Personal
               </p>
               <button
                 type="submit"
                 disabled={state === "loading"}
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-bg-deep transition disabled:opacity-70"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-5 py-3 text-sm font-semibold text-bg-deep transition disabled:opacity-70"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {state === "idle" && (
@@ -185,21 +185,21 @@ function ContactRow({
       href={href}
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel="noreferrer"
-      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-3 transition hover:border-white/20 hover:bg-white/[0.05]"
+      className="group flex items-center justify-between gap-4 rounded-2xl border border-overlay/10 bg-overlay/[0.02] px-4 py-3 transition hover:border-overlay/20 hover:bg-overlay/[0.05]"
     >
       <div className="flex items-center gap-3">
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/5 text-brand-cyan ring-1 ring-white/10">
+        <span className="grid h-9 w-9 place-items-center rounded-xl bg-overlay/5 text-brand-cyan ring-1 ring-overlay/10">
           {icon}
         </span>
         <div>
-          <div className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-faint">
             {label}
           </div>
-          <div className="text-sm text-white">{value}</div>
+          <div className="text-sm text-ink">{value}</div>
         </div>
       </div>
       {href && (
-        <ArrowUpRight className="h-4 w-4 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+        <ArrowUpRight className="h-4 w-4 text-faint transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
       )}
     </Tag>
   );
@@ -224,7 +224,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="block font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+      <span className="block font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
         {label}
       </span>
       {textarea ? (
@@ -234,7 +234,7 @@ function Field({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           rows={5}
-          className="mt-2 block w-full resize-none rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
+          className="mt-2 block w-full resize-none rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink placeholder:text-faint outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
         />
       ) : (
         <input
@@ -243,7 +243,7 @@ function Field({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="mt-2 block w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
+          className="mt-2 block w-full rounded-2xl border border-overlay/10 bg-overlay/[0.03] px-4 py-3 text-sm text-ink placeholder:text-faint outline-none transition focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/40"
         />
       )}
     </label>

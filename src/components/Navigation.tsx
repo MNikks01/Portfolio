@@ -4,6 +4,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -56,7 +57,7 @@ export default function Navigation() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="group relative px-3 py-2 text-xs uppercase tracking-[0.18em] text-zinc-400 transition-colors hover:text-white"
+                  className="group relative px-3 py-2 text-xs uppercase tracking-[0.18em] text-muted transition-colors hover:text-ink"
                 >
                   {l.label}
                   <span className="absolute inset-x-3 -bottom-0.5 h-px scale-x-0 bg-gradient-to-r from-brand-blue to-brand-purple transition-transform duration-300 group-hover:scale-x-100" />
@@ -66,12 +67,13 @@ export default function Navigation() {
           </ul>
 
           <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
             <a
               href="https://github.com/MNikks01"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="text-zinc-400 transition-colors hover:text-brand-cyan"
+              className="text-muted transition-colors hover:text-brand-cyan"
             >
               <Github className="h-4 w-4" />
             </a>
@@ -80,30 +82,33 @@ export default function Navigation() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="text-zinc-400 transition-colors hover:text-brand-cyan"
+              className="text-muted transition-colors hover:text-brand-cyan"
             >
               <Linkedin className="h-4 w-4" />
             </a>
             <a
               href="#contact"
-              className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/10 transition hover:bg-white/10"
+              className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-overlay/5 px-3 py-1.5 text-xs font-medium text-ink ring-1 ring-overlay/10 transition hover:bg-overlay/10"
             >
               <Mail className="h-3.5 w-3.5" />
               Let&apos;s talk
             </a>
           </div>
 
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-            className="grid h-9 w-9 place-items-center rounded-lg bg-white/5 ring-1 ring-white/10 md:hidden"
-          >
-            {open ? (
-              <X className="h-4 w-4" />
-            ) : (
-              <Menu className="h-4 w-4" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setOpen((v) => !v)}
+              className="grid h-9 w-9 place-items-center rounded-lg bg-overlay/5 ring-1 ring-overlay/10"
+            >
+              {open ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
+            </button>
+          </div>
         </nav>
       </motion.header>
 
@@ -124,7 +129,7 @@ export default function Navigation() {
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 hover:text-white"
+                className="block rounded-lg px-3 py-2 text-sm text-soft hover:bg-overlay/5 hover:text-ink"
               >
                 {l.label}
               </a>

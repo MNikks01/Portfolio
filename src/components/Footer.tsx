@@ -4,17 +4,17 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/5 bg-gradient-to-b from-transparent to-black/60">
+    <footer className="relative z-10 border-t border-overlay/10 bg-gradient-to-b from-transparent to-overlay/[0.04]">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
         <div>
           <div className="font-display text-2xl font-bold">
             <span className="text-gradient">Nikhil Meshram</span>
           </div>
-          <p className="mt-1 text-sm text-zinc-500">
+          <p className="mt-1 text-sm text-faint">
             Senior Full Stack Engineer · AI · DevOps · Cloud
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-5 text-sm text-zinc-400">
+        <div className="flex flex-wrap items-center gap-5 text-sm text-muted">
           <a
             href="mailto:mnikks01@gmail.com"
             className="inline-flex items-center gap-2 hover:text-brand-cyan"
@@ -42,7 +42,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="border-t border-white/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-600">
+      <div className="border-t border-overlay/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
         © {new Date().getFullYear()} Nikhil Meshram · Built with Next.js,
         Three.js & Framer Motion
       </div>

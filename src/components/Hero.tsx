@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { easeOutExpo } from "@/lib/utils";
+import CanvasBoundary from "./three/CanvasBoundary";
 
 const TechSphere = dynamic(() => import("./three/TechSphere"), {
   ssr: false,
@@ -31,7 +32,7 @@ const badges = [
 
 const floatingTech = [
   { label: "React", color: "#22D3EE", x: "8%", y: "20%", delay: 0 },
-  { label: "Next.js", color: "#ffffff", x: "82%", y: "18%", delay: 0.2 },
+  { label: "Next.js", color: "#94A3B8", x: "82%", y: "18%", delay: 0.2 },
   { label: "Node.js", color: "#10B981", x: "12%", y: "70%", delay: 0.4 },
   { label: "AWS", color: "#F59E0B", x: "84%", y: "62%", delay: 0.6 },
   { label: "Docker", color: "#00D4FF", x: "50%", y: "8%", delay: 0.8 },
@@ -51,7 +52,15 @@ export default function Hero() {
 
       {/* 3D scene */}
       <div className="absolute inset-0 z-0">
-        <TechSphere />
+        <CanvasBoundary
+          fallback={
+            <div className="absolute inset-0 grid place-items-center">
+              <div className="h-56 w-56 animate-pulse-glow rounded-full bg-brand-blue/20 blur-3xl" />
+            </div>
+          }
+        >
+          <TechSphere />
+        </CanvasBoundary>
       </div>
 
       {/* readability scrim — keeps the left-aligned copy crisp over the 3D core */}
@@ -82,7 +91,7 @@ export default function Hero() {
               className="h-1.5 w-1.5 rounded-full"
               style={{ background: t.color, boxShadow: `0 0 10px ${t.color}` }}
             />
-            <span className="text-zinc-300">{t.label}</span>
+            <span className="text-soft">{t.label}</span>
           </motion.div>
         </motion.div>
       ))}
@@ -93,7 +102,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.8, ease: easeOutExpo }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-300 backdrop-blur"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-overlay/10 bg-overlay/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-soft backdrop-blur"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -143,7 +152,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.65, duration: 0.7, ease: easeOutExpo }}
-          className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.35em] text-zinc-400"
+          className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.35em] text-muted"
         >
           <Sparkles className="h-3.5 w-3.5 text-brand-cyan" />
           Senior Full Stack Engineer
@@ -153,12 +162,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.8, duration: 0.7, ease: easeOutExpo }}
-          className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-zinc-300 md:text-xl"
+          className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-soft md:text-xl"
         >
           Building{" "}
-          <span className="text-white">scalable distributed systems</span>,{" "}
-          <span className="text-white">AI-powered developer tools</span>, and{" "}
-          <span className="text-white">modern cloud platforms</span>. Engineering
+          <span className="text-ink">scalable distributed systems</span>,{" "}
+          <span className="text-ink">AI-powered developer tools</span>, and{" "}
+          <span className="text-ink">modern cloud platforms</span>. Engineering
           excellence from architecture to pixel.
         </motion.p>
 
@@ -170,21 +179,21 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="btn-glow group relative inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-bg-deep transition hover:scale-[1.02]"
+            className="btn-glow group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-bg-deep transition hover:scale-[1.02]"
           >
             View Projects
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
             href="/resume.pdf"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-white/30 hover:bg-white/10"
+            className="group inline-flex items-center gap-2 rounded-full border border-overlay/15 bg-overlay/5 px-5 py-3 text-sm font-medium text-fg transition hover:border-overlay/30 hover:bg-overlay/10"
           >
             <Download className="h-4 w-4 text-brand-cyan" />
             Download Resume
           </a>
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-brand-purple hover:text-white"
+            className="group inline-flex items-center gap-2 rounded-full border border-overlay/10 px-5 py-3 text-sm font-medium text-soft transition hover:border-brand-purple hover:text-ink"
           >
             <Mail className="h-4 w-4 text-brand-purple" />
             Contact Me
@@ -204,7 +213,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 3.25 + i * 0.06 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-300"
+              className="inline-flex items-center gap-2 rounded-full border border-overlay/10 bg-overlay/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-soft"
             >
               <span className="h-1 w-1 rounded-full bg-brand-cyan shadow-[0_0_8px_#22d3ee]" />
               {b}
@@ -221,15 +230,15 @@ export default function Hero() {
         transition={{ delay: 3.6, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center"
       >
-        <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+        <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
           Scroll
         </div>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.6, repeat: Infinity }}
-          className="mt-2 inline-grid h-7 w-7 place-items-center rounded-full border border-white/15"
+          className="mt-2 inline-grid h-7 w-7 place-items-center rounded-full border border-overlay/15"
         >
-          <ArrowDown className="h-3.5 w-3.5 text-zinc-400" />
+          <ArrowDown className="h-3.5 w-3.5 text-muted" />
         </motion.div>
       </motion.a>
     </section>

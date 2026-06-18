@@ -22,14 +22,14 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: i * 0.06 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center md:p-8"
+            className="relative overflow-hidden rounded-3xl border border-overlay/10 bg-overlay/[0.03] p-6 text-center md:p-8"
           >
             <div
               className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-20 blur-3xl"
               style={{ background: s.color }}
             />
             <Counter value={s.value} color={s.color} suffix={s.suffix} />
-            <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+            <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
               {s.label}
             </div>
           </motion.div>

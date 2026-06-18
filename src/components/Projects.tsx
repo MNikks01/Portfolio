@@ -143,7 +143,7 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: index * 0.08 }}
-      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-6 md:p-10"
+      className="group relative overflow-hidden rounded-3xl border border-overlay/10 bg-gradient-to-br from-overlay/[0.04] to-overlay/[0.01] p-6 md:p-10"
     >
       <div
         className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full opacity-30 blur-3xl transition group-hover:opacity-60"
@@ -162,21 +162,21 @@ function ProjectCard({
               <Icon className="h-5 w-5" style={{ color: project.accent }} />
             </span>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
                 {project.role}
               </div>
-              <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">
+              <h3 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                 {project.name}
               </h3>
             </div>
           </div>
-          <p className="mt-4 max-w-2xl text-zinc-400">{project.summary}</p>
+          <p className="mt-4 max-w-2xl text-muted">{project.summary}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-300"
+                className="rounded-full border border-overlay/10 bg-overlay/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-soft"
               >
                 {t}
               </span>
@@ -187,7 +187,7 @@ function ProjectCard({
             {project.metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                className="rounded-2xl border border-overlay/10 bg-overlay/[0.03] p-4"
               >
                 <div
                   className="font-display text-2xl font-bold"
@@ -195,22 +195,22 @@ function ProjectCard({
                 >
                   {m.value}
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-faint">
                   {m.label}
                 </div>
               </div>
             ))}
           </div>
 
-          <button className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10">
+          <button className="mt-8 inline-flex items-center gap-2 rounded-full border border-overlay/15 bg-overlay/5 px-4 py-2 text-sm font-medium text-ink transition hover:bg-overlay/10">
             Case Study
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>
 
         {/* Architecture viz */}
-        <div className="relative min-h-[260px] rounded-2xl border border-white/10 bg-bg-deep/60 p-5">
-          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+        <div className="relative min-h-[260px] rounded-2xl border border-overlay/10 bg-bg-deep/60 p-5">
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
             Architecture
           </div>
           <div className="mt-4 grid gap-2">
@@ -230,7 +230,7 @@ function ProjectCard({
                     boxShadow: `0 0 8px ${project.accent}`,
                   }}
                 />
-                <div className="flex-1 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-zinc-300">
+                <div className="flex-1 rounded-lg border border-overlay/10 bg-overlay/[0.03] px-3 py-2 text-xs text-soft">
                   {node}
                 </div>
               </motion.div>

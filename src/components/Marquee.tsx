@@ -21,12 +21,12 @@ const items = [
 
 export default function Marquee() {
   return (
-    <div className="relative overflow-hidden border-y border-white/5 bg-black/30 py-5">
+    <div className="relative overflow-hidden border-y border-overlay/10 bg-overlay/[0.03] py-5">
       <div className="flex w-max animate-marquee gap-12 px-6">
         {[...items, ...items].map((t, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 font-display text-2xl font-semibold text-zinc-400 md:text-3xl"
+            className="flex items-center gap-3 font-display text-2xl font-semibold text-muted md:text-3xl"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#22d3ee]" />
             <span>{t}</span>

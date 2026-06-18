@@ -87,7 +87,7 @@ export default function LoadingScreen() {
             </motion.div>
 
             <motion.div
-              className="font-mono text-xs uppercase tracking-[0.4em] text-zinc-400"
+              className="font-mono text-xs uppercase tracking-[0.4em] text-muted"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25 }}
@@ -95,14 +95,14 @@ export default function LoadingScreen() {
               Booting Engineering OS
             </motion.div>
 
-            <div className="relative h-[2px] w-64 overflow-hidden rounded-full bg-white/10">
+            <div className="relative h-[2px] w-64 overflow-hidden rounded-full bg-overlay/10">
               <motion.div
                 className="h-full bg-gradient-to-r from-brand-blue via-brand-purple to-brand-pink"
                 animate={{ width: `${progress}%` }}
                 transition={{ ease: "easeOut", duration: 0.35 }}
               />
             </div>
-            <div className="font-mono text-[10px] tabular-nums text-zinc-500">
+            <div className="font-mono text-[10px] tabular-nums text-faint">
               {progress.toFixed(0).padStart(3, "0")}%
             </div>
           </div>

@@ -8,7 +8,37 @@
   --brand-cyan: #22d3ee;
   --brand-emerald: #10b981;
   --brand-pink: #ec4899;
-  --bg-deep: #030712;
+
+  /* Theme tokens — DARK is the default (channels: "r g b") */
+  --bg: 3 7 18;
+  --bg-panel: 11 17 32;
+  --ink: 255 255 255;
+  --base: 229 231 235;
+  --soft: 212 212 216;
+  --muted: 161 161 170;
+  --faint: 113 113 122;
+  --overlay: 255 255 255;
+
+  --grid-x: rgba(0, 212, 255, 0.08);
+  --grid-y: rgba(139, 92, 246, 0.08);
+  --scroll-track: #050816;
+  color-scheme: dark;
+}
+
+.light {
+  --bg: 244 247 252;
+  --bg-panel: 255 255 255;
+  --ink: 11 17 32;
+  --base: 30 41 59;
+  --soft: 51 65 85;
+  --muted: 71 85 105;
+  --faint: 100 116 139;
+  --overlay: 15 23 42;
+
+  --grid-x: rgba(8, 145, 178, 0.1);
+  --grid-y: rgba(124, 58, 237, 0.1);
+  --scroll-track: #dde3ec;
+  color-scheme: light;
 }
 
 * {
@@ -17,12 +47,13 @@
 
 html,
 body {
-  background: var(--bg-deep);
-  color: #e5e7eb;
+  background: rgb(var(--bg));
+  color: rgb(var(--base));
   scroll-behavior: smooth;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
@@ -46,7 +77,7 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050816;
+  background: var(--scroll-track);
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #00d4ff, #8b5cf6);
@@ -79,28 +110,24 @@ body {
 .glass {
   background: linear-gradient(
     180deg,
-    rgba(11, 17, 32, 0.7),
-    rgba(3, 7, 18, 0.85)
+    rgb(var(--bg-panel) / 0.72),
+    rgb(var(--bg) / 0.82)
   );
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgb(var(--overlay) / 0.08);
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgb(var(--overlay) / 0.04);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgb(var(--overlay) / 0.08);
 }
 
 .grid-bg {
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 212, 255, 0.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(to right, var(--grid-x) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-y) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
 }
