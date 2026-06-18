@@ -74,38 +74,42 @@ export default function Experience() {
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[260px_1fr]">
-          {/* Tabs */}
-          <div className="flex flex-row gap-2 overflow-x-auto lg:flex-col">
+          {/* Tabs — wrapping pills on mobile, rich list on desktop */}
+          <div className="flex flex-wrap gap-2 lg:flex-col lg:flex-nowrap">
             {jobs.map((j, i) => (
               <button
                 key={j.company}
                 onClick={() => setActive(i)}
-                className={`group relative shrink-0 rounded-2xl border px-4 py-3 text-left transition ${
+                className={`group relative flex items-center gap-2 rounded-full border px-3.5 py-2 text-left transition lg:gap-3 lg:rounded-2xl lg:px-4 lg:py-3 ${
                   active === i
                     ? "border-white/15 bg-white/5"
                     : "border-white/5 hover:border-white/10 hover:bg-white/5"
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <span
-                    className="grid h-9 w-9 place-items-center rounded-xl"
-                    style={{ background: `${j.color}1a`, boxShadow: `inset 0 0 0 1px ${j.color}40` }}
-                  >
-                    <Building2 className="h-4 w-4" style={{ color: j.color }} />
+                {/* desktop icon tile */}
+                <span
+                  className="hidden h-9 w-9 place-items-center rounded-xl lg:grid"
+                  style={{ background: `${j.color}1a`, boxShadow: `inset 0 0 0 1px ${j.color}40` }}
+                >
+                  <Building2 className="h-4 w-4" style={{ color: j.color }} />
+                </span>
+                {/* mobile color dot */}
+                <span
+                  className="h-2 w-2 shrink-0 rounded-full lg:hidden"
+                  style={{ background: j.color, boxShadow: `0 0 8px ${j.color}` }}
+                />
+                <span className="flex flex-col">
+                  <span className="text-sm font-semibold leading-tight text-white">
+                    {j.company}
                   </span>
-                  <div>
-                    <div className="text-sm font-semibold text-white">
-                      {j.company}
-                    </div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                      {j.period}
-                    </div>
-                  </div>
-                </div>
+                  <span className="hidden font-mono text-[10px] uppercase tracking-widest text-zinc-500 lg:block">
+                    {j.period}
+                  </span>
+                </span>
                 {active === i && (
                   <motion.span
                     layoutId="job-indicator"
-                    className="absolute inset-y-2 right-2 w-1 rounded-full"
+                    className="absolute inset-y-2 right-2 hidden w-1 rounded-full lg:block"
                     style={{ background: j.color, boxShadow: `0 0 10px ${j.color}` }}
                   />
                 )}
