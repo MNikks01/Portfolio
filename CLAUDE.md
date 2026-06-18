@@ -8,6 +8,25 @@ Personal portfolio for **Nikhil** — a Senior Full Stack / Product / AI Enginee
 Single-page Next.js site that positions him as a founder + engineer + product
 builder, with a dark/light theme and a 3D hero.
 
+## Knowledge base & governance (read first)
+
+`docs/` is the **canonical source of truth** for all career + portfolio content
+and the engineering governance of this repo. **Always update `docs/` first, then
+the portfolio presentation in `src/`.** Start at [docs/README.md](./docs/README.md).
+
+Follow these update contracts exactly (full table in `docs/README.md`):
+
+- **"Update my skills"** → update `docs/skills/*` → update `Skills.tsx` → update
+  `docs/governance/audit-report.md` if quality changed.
+- **"Add a project"** → create `docs/projects/<name>.md` → update
+  `docs/projects/project-index.md` → update `Projects.tsx` / `CaseStudy.tsx`.
+- **"Update experience"** → update `docs/career/*` → update `Experience.tsx`.
+- **"Review codebase"** → audit, then update `docs/governance/`:
+  `production-checklist.md`, `technical-debt.md`, `backlog.md`, `roadmap.md`, and
+  append a dated entry to `audit-report.md`.
+
+Never let portfolio content drift from `docs/`.
+
 ## Tech stack
 
 - **Next.js 15** (App Router) + **React 19** + **TypeScript**
