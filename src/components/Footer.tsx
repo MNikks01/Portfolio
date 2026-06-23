@@ -4,6 +4,7 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { links } from "@/content/navigation";
+import VisitorCount from "./VisitorCount";
 
 export default function Footer() {
   return (
@@ -54,9 +55,12 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="border-t border-overlay/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-faint">
-        © {new Date().getFullYear()} {site.name} · Built with Next.js, Three.js
-        &amp; Framer Motion
+      <div className="flex flex-col items-center justify-between gap-3 border-t border-overlay/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-faint sm:flex-row">
+        <span>
+          © {new Date().getFullYear()} {site.name} · Built with Next.js,
+          Three.js &amp; Framer Motion
+        </span>
+        <VisitorCount />
       </div>
     </footer>
   );
