@@ -1,7 +1,9 @@
 "use client";
 
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
 import { site } from "@/content/site";
+import { links } from "@/content/navigation";
 
 export default function Footer() {
   return (
@@ -12,6 +14,17 @@ export default function Footer() {
             <span className="text-gradient">{site.name}</span>
           </div>
           <p className="mt-1 text-sm text-faint">{site.tagline}</p>
+          <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-xs uppercase tracking-[0.18em] text-muted transition-colors hover:text-ink"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
         </div>
         <div className="flex flex-wrap items-center gap-5 text-sm text-muted">
           <a

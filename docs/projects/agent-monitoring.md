@@ -1,7 +1,7 @@
 # Agent Monitoring Platform
 
-> Source of truth for the "Agent Monitoring" entry in `BuildingNow.tsx`.
-> Content layer: `src/content/building-now.ts`.
+> Source of truth for the "Agent Monitoring" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`).
+> Content layer: `src/content/building.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |

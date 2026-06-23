@@ -1,7 +1,7 @@
 # System Design Assistant
 
-> Source of truth for the "System Design Assistant" entry in `BuildingNow.tsx`.
-> Content layer: `src/content/building-now.ts`.
+> Source of truth for the "System Design Assistant" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`).
+> Content layer: `src/content/building.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |

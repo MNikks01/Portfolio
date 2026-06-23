@@ -1,12 +1,11 @@
-// Navigation links. Mirrors the section order in src/app/page.tsx.
+// Navigation links. Route-based (multi-page site). Mirrors src/app/* routes.
 
 export type NavLink = { href: string; label: string };
 
 export const links: NavLink[] = [
-  { href: "#founder", label: "Journey" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#casestudy", label: "Work" },
-  { href: "#now", label: "Building" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/building", label: "Building" },
+  { href: "/contact", label: "Contact" },
 ];

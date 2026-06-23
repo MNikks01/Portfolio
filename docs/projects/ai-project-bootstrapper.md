@@ -1,7 +1,7 @@
 # AI Project Bootstrapper
 
-> Source of truth for the "AI Project Bootstrapper" entry in `BuildingNow.tsx`.
-> Content layer: `src/content/building-now.ts`.
+> Source of truth for the "AI Project Bootstrapper" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`).
+> Content layer: `src/content/building.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |

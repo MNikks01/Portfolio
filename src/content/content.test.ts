@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { categories } from "./skills";
 import { site } from "./site";
 import { projects } from "./projects";
+import { projects as buildingProjects } from "./building";
 
 const read = (p: string) => readFileSync(resolve(process.cwd(), p), "utf8");
 
@@ -40,6 +41,16 @@ describe("content ↔ docs parity", () => {
       // The index lists "ConnectEdApp", "Revize Accessibility Platform", "Ignix UI".
       const key = project.name.split(" ")[0]; // first word is enough to anchor
       expect(index).toContain(key);
+    }
+  });
+
+  it("every Building project has a docs file and an index entry", () => {
+    const index = read("docs/projects/project-index.md");
+    for (const p of buildingProjects) {
+      // Each slug must have a backing doc...
+      expect(() => read(`docs/projects/${p.slug}.md`)).not.toThrow();
+      // ...and the project name must appear in the index.
+      expect(index, `missing "${p.name}" in project-index`).toContain(p.name);
     }
   });
 
