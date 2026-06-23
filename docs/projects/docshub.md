@@ -1,7 +1,7 @@
 # DocsHub
 
-> Source of truth for the "DocsHub" entry in `BuildingNow.tsx`. Content layer:
-> `src/content/building-now.ts`. Product spec: DocsHub PRD.
+> Source of truth for the "DocsHub" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`). Content layer:
+> `src/content/building.ts`. Product spec: DocsHub PRD.
 
 | Field    | Value                          |
 | -------- | ------------------------------ |

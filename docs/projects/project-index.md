@@ -16,28 +16,30 @@ Master list of products/projects. When adding a project: create
 It gets a dedicated deep-dive section (`CaseStudy.tsx`); Revize and Ignix UI
 appear in the "Products I've Built" grid (`Projects.tsx`).
 
-## Currently building (Building Now cards)
+## The "Building" family (`/building` route + detail pages)
 
-The `#now` section showcases a family of AI-developer products united by **context
-as the connective layer** (MCP-native, governed, observable), plus a knowledge
-SaaS and a research agent. Source: `src/content/building-now.ts`; rendered by
-`BuildingNow.tsx`. See [`../portfolio/homepage-content.md`](../portfolio/homepage-content.md).
+The `/building` hub + `/building/[slug]` detail pages showcase a family of
+AI-developer products united by **context as the connective layer** (MCP-native,
+governed, observable), plus DocsHub (a knowledge SaaS). Each is backed by a real
+GitHub repo. Source: `src/content/building.ts`; rendered by `BuildingNow.tsx`
+(hub) and `ProjectDetail.tsx` (detail). See
+[`../portfolio/homepage-content.md`](../portfolio/homepage-content.md).
 
-| Project                 | Status         | Accent    | Doc                                                        |
-| ----------------------- | -------------- | --------- | ---------------------------------------------------------- |
-| ContextOS               | Building       | `#8B5CF6` | [contextos.md](./contextos.md)                             |
-| Codebase Intelligence   | Building       | `#00D4FF` | [codebase-intelligence.md](./codebase-intelligence.md)     |
-| MCP Server Generator    | Building       | `#EC4899` | [mcp-server-generator.md](./mcp-server-generator.md)       |
-| Agent Monitoring        | Building       | `#22D3EE` | [agent-monitoring.md](./agent-monitoring.md)               |
-| AI Project Bootstrapper | Building       | `#10B981` | [ai-project-bootstrapper.md](./ai-project-bootstrapper.md) |
-| System Design Assistant | Building       | `#F59E0B` | [system-design-assistant.md](./system-design-assistant.md) |
-| Agent Marketplace       | Planned (Yr 3) | `#3B82F6` | [agent-marketplace.md](./agent-marketplace.md)             |
-| DocsHub                 | Building       | `#0EA5E9` | [docshub.md](./docshub.md)                                 |
-| AI Research Assistant   | Building       | `#A855F7` | [ai-research-assistant.md](./ai-research-assistant.md)     |
+| Project                   | Status   | Accent    | Repo                                                                               | Doc                                                        |
+| ------------------------- | -------- | --------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| ContextOS                 | Building | `#8B5CF6` | [contextos](https://github.com/MNikks01/contextos)                                 | [contextos.md](./contextos.md)                             |
+| Codebase Intelligence     | Building | `#00D4FF` | [codebase-intelligence](https://github.com/MNikks01/codebase-intelligence)         | [codebase-intelligence.md](./codebase-intelligence.md)     |
+| MCP Server Generator      | Active   | `#EC4899` | [mcp-server-generator](https://github.com/MNikks01/mcp-server-generator)           | [mcp-server-generator.md](./mcp-server-generator.md)       |
+| Agent Monitoring Platform | Building | `#22D3EE` | [agent-monitoring-platform](https://github.com/MNikks01/agent-monitoring-platform) | [agent-monitoring.md](./agent-monitoring.md)               |
+| AI Project Bootstrapper   | Building | `#10B981` | [project-bootstrapper](https://github.com/MNikks01/project-bootstrapper)           | [ai-project-bootstrapper.md](./ai-project-bootstrapper.md) |
+| System Design Assistant   | Building | `#F59E0B` | [system-design-assistant](https://github.com/MNikks01/system-design-assistant)     | [system-design-assistant.md](./system-design-assistant.md) |
+| Agent Marketplace         | Planned  | `#3B82F6` | [agent-marketplace](https://github.com/MNikks01/agent-marketplace)                 | [agent-marketplace.md](./agent-marketplace.md)             |
+| DocsHub                   | Building | `#0EA5E9` | [tutorials-web-app](https://github.com/MNikks01/tutorials-web-app)                 | [docshub.md](./docshub.md)                                 |
 
 > **Platform thesis:** ContextOS is the hub; Codebase Intelligence is the
 > substrate; Agent Monitoring is the reliability layer; the MCP Server Generator
 > and AI Project Bootstrapper are top-of-funnel on-ramps; System Design Assistant
 > is a grounded module; Agent Marketplace is the monetization flywheel (built
-> last). DocsHub and the AI Research Assistant are adjacent knowledge/research
-> products.
+> last). DocsHub is an adjacent knowledge SaaS.
+>
+> _(The earlier AI Research Assistant concept was dropped — no repo backs it.)_

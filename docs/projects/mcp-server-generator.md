@@ -1,13 +1,13 @@
 # MCP Server Generator
 
-> Source of truth for the "MCP Server Generator" entry in `BuildingNow.tsx`.
-> Content layer: `src/content/building-now.ts`.
+> Source of truth for the "MCP Server Generator" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`).
+> Content layer: `src/content/building.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |
 | Role     | Creator / Architect |
 | Duration | 2026 — Present      |
-| Status   | Building            |
+| Status   | Active              |
 | Accent   | `#EC4899`           |
 | Category | MCP tooling         |
 

@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { links } from "@/content/navigation";
@@ -13,6 +15,9 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
@@ -32,8 +37,8 @@ export default function Navigation() {
               : "border border-transparent bg-transparent",
           )}
         >
-          <a
-            href="#top"
+          <Link
+            href="/"
             className="group flex items-center gap-2 font-display text-sm font-bold tracking-tight"
           >
             <span className="relative grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-purple text-bg-deep shadow-glow-cyan">
@@ -44,18 +49,26 @@ export default function Navigation() {
               {site.name}
               <span className="text-brand-cyan">.</span>
             </span>
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-1 md:flex">
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
-                  className="group relative px-3 py-2 text-xs uppercase tracking-[0.18em] text-muted transition-colors hover:text-ink"
+                  className={cn(
+                    "group relative px-3 py-2 text-xs uppercase tracking-[0.18em] transition-colors hover:text-ink",
+                    isActive(l.href) ? "text-ink" : "text-muted",
+                  )}
                 >
                   {l.label}
-                  <span className="absolute inset-x-3 -bottom-0.5 h-px scale-x-0 bg-gradient-to-r from-brand-blue to-brand-purple transition-transform duration-300 group-hover:scale-x-100" />
-                </a>
+                  <span
+                    className={cn(
+                      "absolute inset-x-3 -bottom-0.5 h-px bg-gradient-to-r from-brand-blue to-brand-purple transition-transform duration-300 group-hover:scale-x-100",
+                      isActive(l.href) ? "scale-x-100" : "scale-x-0",
+                    )}
+                  />
+                </Link>
               </li>
             ))}
           </ul>
@@ -80,13 +93,13 @@ export default function Navigation() {
             >
               <Linkedin className="h-4 w-4" />
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-overlay/5 px-3 py-1.5 text-xs font-medium text-ink ring-1 ring-overlay/10 transition hover:bg-overlay/10"
             >
               <Mail className="h-3.5 w-3.5" />
               Let&apos;s talk
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -116,13 +129,16 @@ export default function Navigation() {
         <ul className="grid gap-1">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm text-soft hover:bg-overlay/5 hover:text-ink"
+                className={cn(
+                  "block rounded-lg px-3 py-2 text-sm hover:bg-overlay/5 hover:text-ink",
+                  isActive(l.href) ? "text-ink" : "text-soft",
+                )}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

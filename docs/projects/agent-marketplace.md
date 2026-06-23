@@ -1,7 +1,7 @@
 # Agent Marketplace
 
-> Source of truth for the "Agent Marketplace" entry in `BuildingNow.tsx`.
-> Content layer: `src/content/building-now.ts`.
+> Source of truth for the "Agent Marketplace" entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`).
+> Content layer: `src/content/building.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |

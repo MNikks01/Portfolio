@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -144,13 +145,13 @@ export default function Hero() {
           transition={{ delay: 3.0, duration: 0.7, ease: easeOutExpo }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <a
-            href="#projects"
+          <Link
+            href="/work"
             className="btn-glow group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-bg-deep transition hover:scale-[1.02]"
           >
             View Projects
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+          </Link>
           <a
             href={site.resume}
             className="group inline-flex items-center gap-2 rounded-full border border-overlay/15 bg-overlay/5 px-5 py-3 text-sm font-medium text-fg transition hover:border-overlay/30 hover:bg-overlay/10"
@@ -158,13 +159,13 @@ export default function Hero() {
             <Download className="h-4 w-4 text-brand-cyan" />
             Download Resume
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full border border-overlay/10 px-5 py-3 text-sm font-medium text-soft transition hover:border-brand-purple hover:text-ink"
           >
             <Mail className="h-4 w-4 text-brand-purple" />
             Contact Me
-          </a>
+          </Link>
         </motion.div>
 
         {/* Badges */}
@@ -191,7 +192,7 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <motion.a
-        href="#about"
+        href="#explore"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.6, duration: 1 }}

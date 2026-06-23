@@ -1,7 +1,7 @@
 # ContextOS
 
-> Source of truth for the ContextOS entry in `BuildingNow.tsx`. Content layer:
-> `src/content/building-now.ts`. Competitive landscape:
+> Source of truth for the ContextOS entry in the `/building` hub (`BuildingNow.tsx`) + its `/building/[slug]` detail page (`ProjectDetail.tsx`). Content layer:
+> `src/content/building.ts`. Competitive landscape:
 > `.claude` / project competitor-analysis.
 
 | Field    | Value                  |

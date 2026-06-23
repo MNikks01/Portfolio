@@ -6,6 +6,9 @@ import CustomCursor from "@/components/CustomCursor";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
+import GridBackground from "@/components/GridBackground";
+import ParticleBackground from "@/components/ParticleBackground";
 import { site } from "@/content/site";
 
 const inter = Inter({
@@ -138,6 +141,9 @@ export default function RootLayout({
         </a>
         <LoadingScreen />
         <CustomCursor />
+        <ScrollProgress />
+        <GridBackground />
+        <ParticleBackground />
         <SmoothScroll>
           <Navigation />
           <main id="main" className="relative z-10">
