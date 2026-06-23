@@ -32,6 +32,9 @@ _None open._
 - [x] **Fix `AISection.tsx` token-rule violation** (TD-010)
 - [x] **OG/Twitter image** via `opengraph-image.tsx` `ImageResponse` (TD-011)
 - [x] **Contact backend** — `/api/contact` with validation + rate limiting (TD-004)
+- [x] **Visitor counter** — total page views via `/api/views` (Netlify Blobs,
+      `analytics` store, key `page-views`); `VisitorCount.tsx` in the footer.
+      Fails soft to `{ views: null }` off-Netlify (badge hides in local dev)
 - [x] **Playwright E2E smoke tests** + expanded Vitest coverage (9 → 26) +
       `content ↔ docs` parity test (TD-005)
 - [x] **Lighthouse check in CI** with assertion budgets (TD-006)
