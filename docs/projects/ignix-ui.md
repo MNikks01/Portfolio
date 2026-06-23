@@ -1,8 +1,7 @@
 # Ignix UI
 
-> Source of truth for the Ignix UI entry in `src/components/Projects.tsx` and
-> `BuildingNow.tsx`. Content layer: `src/content/projects.ts`,
-> `src/content/building-now.ts`.
+> Source of truth for the Ignix UI entry in `src/components/Projects.tsx`.
+> Content layer: `src/content/projects.ts`.
 
 | Field    | Value               |
 | -------- | ------------------- |
