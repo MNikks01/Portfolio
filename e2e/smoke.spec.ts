@@ -27,10 +27,23 @@ test.describe("portfolio smoke", () => {
       .toBe(!before.includes("light"));
   });
 
-  test("nav anchors jump to sections", async ({ page }) => {
+  test("nav routes to the about page and its sections", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Skills" }).first().click();
-    await expect(page).toHaveURL(/#skills$/);
-    await expect(page.locator("#skills")).toBeInViewport();
+    await page.getByRole("link", { name: "About" }).first().click();
+    await expect(page).toHaveURL(/\/about$/);
+    await expect(page.locator("#skills")).toBeVisible();
+  });
+
+  test("building hub links to a project detail page", async ({ page }) => {
+    await page.goto("/building");
+    await page
+      .getByRole("link", { name: /ContextOS/ })
+      .first()
+      .click();
+    await expect(page).toHaveURL(/\/building\/contextos$/);
+    await expect(
+      page.getByRole("heading", { name: "ContextOS", level: 1 }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: /view repo/i })).toBeVisible();
   });
 });
