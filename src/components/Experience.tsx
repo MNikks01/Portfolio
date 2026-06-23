@@ -30,6 +30,7 @@ export default function Experience() {
             {jobs.map((j, i) => (
               <button
                 key={j.company}
+                onMouseEnter={() => setActive(i)}
                 onClick={() => setActive(i)}
                 className={`group relative flex items-center gap-2 rounded-full border px-3.5 py-2 text-left transition lg:gap-3 lg:rounded-2xl lg:px-4 lg:py-3 ${
                   active === i
