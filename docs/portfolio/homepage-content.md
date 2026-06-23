@@ -21,8 +21,16 @@ Section order and copy for the single-page portfolio (`src/app/page.tsx`).
 
 ## Building Now (cards)
 
-Ignix UI · MCP Servers · AI Developer Tools · Modern UI Systems · Agentic
-Workflows · AI-Powered Development.
+A family of AI-developer products united by **context as the connective layer**
+(MCP-native, governed, observable), plus a knowledge SaaS and a research agent:
+
+ContextOS (AI developer workspace / context layer) · Codebase Intelligence
+Platform (team-grade codebase brain) · MCP Server Generator (production-ready,
+secure MCP servers) · Agent Monitoring Platform (agent-trajectory observability +
+evals) · AI Project Bootstrapper (production- and agent-ready scaffolds) · System
+Design Assistant (codebase-grounded AI co-architect) · Agent Marketplace (curated,
+monetized agents + MCP servers) · DocsHub (reading-first documentation & knowledge
+SaaS) · AI Research Assistant (agentic, cited research synthesis).
 
 ## Why Work With Me (value props)
 
