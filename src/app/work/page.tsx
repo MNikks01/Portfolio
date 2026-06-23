@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import CaseStudy from "@/components/CaseStudy";
 import Projects from "@/components/Projects";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Shipped products and a deep-dive case study — ConnectEdApp, the Revize accessibility platform, and Ignix UI.",
+    "Shipped products — the Revize accessibility platform, Ignix UI, and more. (The ConnectEdApp founder case study lives under Startup.)",
   alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {
-  return (
-    <>
-      <CaseStudy />
-      <Projects />
-    </>
-  );
+  return <Projects />;
 }

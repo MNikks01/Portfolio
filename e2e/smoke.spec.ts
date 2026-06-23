@@ -27,10 +27,14 @@ test.describe("portfolio smoke", () => {
       .toBe(!before.includes("light"));
   });
 
-  test("nav routes to the about page and its sections", async ({ page }) => {
+  test("nav routes to standalone section pages", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("link", { name: "About" }).first().click();
     await expect(page).toHaveURL(/\/about$/);
+    await expect(page.locator("#founder")).toBeVisible();
+
+    await page.getByRole("link", { name: "Skills" }).first().click();
+    await expect(page).toHaveURL(/\/skills$/);
     await expect(page.locator("#skills")).toBeVisible();
   });
 

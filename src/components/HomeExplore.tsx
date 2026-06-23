@@ -2,7 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Boxes, Briefcase, Compass, Mail } from "lucide-react";
+import {
+  ArrowUpRight,
+  Boxes,
+  Briefcase,
+  Compass,
+  Mail,
+  Rocket,
+} from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import SectionCard from "./SectionCard";
 
@@ -12,14 +19,21 @@ const cards = [
   {
     href: "/about",
     label: "About",
-    desc: "The founder journey, how I think about product, my skills, and how I build systems.",
+    desc: "The founder journey, how I think about product, and how I build systems.",
     icon: Compass,
     color: "#8B5CF6",
   },
   {
+    href: "/startup",
+    label: "Startup",
+    desc: "ConnectEdApp — the founder case study, built and shipped end-to-end.",
+    icon: Rocket,
+    color: "#F59E0B",
+  },
+  {
     href: "/work",
     label: "Work",
-    desc: "Shipped products and the ConnectEdApp deep-dive case study.",
+    desc: "Shipped products — the Revize accessibility platform, Ignix UI, and more.",
     icon: Briefcase,
     color: "#00D4FF",
   },
