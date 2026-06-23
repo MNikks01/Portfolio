@@ -3,6 +3,7 @@
 | Channel   | Value                                          |
 | --------- | ---------------------------------------------- |
 | Email     | mnikks01@gmail.com                             |
+| Phone     | +91 9561446382                                 |
 | Location  | Nagpur, Maharashtra, India                     |
 | GitHub    | https://github.com/MNikks01                    |
 | LinkedIn  | https://linkedin.com/in/nikhil-shakya-5b7318a1 |
@@ -14,7 +15,7 @@ Usually replies within 24 hours.
 
 ## Usage in portfolio
 
-- `Contact.tsx` — info card rows (email, location, GitHub, LinkedIn)
+- `Contact.tsx` — info card rows (email, phone, location, GitHub, LinkedIn)
 - `Footer.tsx` — email, location, social links
-- `Navigation.tsx` — "Let's talk" CTA → `#contact`
+- `Navigation.tsx` — "Let's talk" CTA → `/contact`
 - `src/app/layout.tsx` — JSON-LD `email`, `sameAs`, address

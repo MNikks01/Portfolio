@@ -51,7 +51,7 @@ export default function Navigation() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-1 md:flex">
+          <ul className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
@@ -73,7 +73,7 @@ export default function Navigation() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <ThemeToggle />
             <a
               href={site.social.github.url}
@@ -102,7 +102,7 @@ export default function Navigation() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
             <button
               aria-label="Toggle menu"
@@ -124,7 +124,7 @@ export default function Navigation() {
             : { y: -20, opacity: 0, pointerEvents: "none" }
         }
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="glass fixed inset-x-4 top-20 z-40 rounded-2xl p-4 md:hidden"
+        className="glass fixed inset-x-4 top-20 z-40 rounded-2xl p-4 lg:hidden"
       >
         <ul className="grid gap-1">
           {links.map((l) => (

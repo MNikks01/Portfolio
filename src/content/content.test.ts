@@ -57,6 +57,7 @@ describe("content ↔ docs parity", () => {
   it("site contact details match docs/profile/contact.md", () => {
     const contact = read("docs/profile/contact.md");
     expect(contact).toContain(site.email);
+    expect(contact).toContain(site.phone);
     expect(contact).toContain(site.location);
     expect(contact).toContain(site.social.github.url);
     expect(contact).toContain(site.social.linkedin.url);

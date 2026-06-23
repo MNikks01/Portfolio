@@ -8,6 +8,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Phone,
   Send,
 } from "lucide-react";
 import { useState } from "react";
@@ -88,6 +89,12 @@ export default function Contact() {
                 label="Email"
                 value={site.email}
                 href={`mailto:${site.email}`}
+              />
+              <ContactRow
+                icon={<Phone className="h-4 w-4" />}
+                label="Phone"
+                value={site.phone}
+                href={`tel:${site.phone.replace(/\s+/g, "")}`}
               />
               <ContactRow
                 icon={<MapPin className="h-4 w-4" />}

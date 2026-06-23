@@ -223,41 +223,19 @@ export default function ProjectDetail({ slug }: { slug: string }) {
           </div>
         </Block>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2">
-          <motion.section {...reveal}>
-            <h2 className="font-display text-2xl font-bold tracking-tight">
-              How it makes money
-            </h2>
-            <ul className="mt-5 space-y-3">
-              {project.model.map((m) => (
-                <li key={m} className="flex gap-3 text-sm text-muted">
-                  <Check
-                    className="mt-0.5 h-4 w-4 shrink-0"
-                    style={{ color: accent }}
-                  />
-                  <span className="leading-relaxed">{m}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.section>
-
-          <motion.section {...reveal}>
-            <h2 className="font-display text-2xl font-bold tracking-tight">
-              Why it&apos;s different
-            </h2>
-            <ul className="mt-5 space-y-3">
-              {project.differentiators.map((d) => (
-                <li key={d} className="flex gap-3 text-sm text-muted">
-                  <Check
-                    className="mt-0.5 h-4 w-4 shrink-0"
-                    style={{ color: accent }}
-                  />
-                  <span className="leading-relaxed">{d}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.section>
-        </div>
+        <Block title="Why it's different">
+          <ul className="space-y-3">
+            {project.differentiators.map((d) => (
+              <li key={d} className="flex gap-3 text-sm text-muted">
+                <Check
+                  className="mt-0.5 h-4 w-4 shrink-0"
+                  style={{ color: accent }}
+                />
+                <span className="leading-relaxed">{d}</span>
+              </li>
+            ))}
+          </ul>
+        </Block>
 
         <Block title="Roadmap">
           <div className="relative space-y-4 border-l border-overlay/10 pl-6">

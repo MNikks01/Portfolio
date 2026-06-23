@@ -9,6 +9,7 @@ export const site = {
   url: "https://nikhilmeshram.dev",
   resume: "/resume.pdf",
   email: "mnikks01@gmail.com",
+  phone: "+91 9561446382",
   location: "Nagpur, Maharashtra",
   social: {
     github: {

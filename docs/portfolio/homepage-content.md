@@ -5,14 +5,17 @@ site was split out of a single long page so each area has its own URL.
 
 ## Route map
 
-| Route              | Sections (components)                                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `/`                | Hero, Marquee, condensed "what I do" + featured teasers, Stats, contact CTA                                           |
-| `/about`           | Founder Journey, Business+Engineering mindset, Skills, System Architect, Experience, AI Engineering, Why Work With Me |
-| `/work`            | Case Study (ConnectEdApp) + Products I've Built grid                                                                  |
-| `/building`        | The "Building" family hub (8 AI products) + platform thesis                                                           |
-| `/building/[slug]` | Per-project detail page (rendered from `src/content/building.ts`)                                                     |
-| `/contact`         | Contact form (`#contact`)                                                                                             |
+| Route              | Sections (components)                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| `/`                | Hero, Marquee, Explore teasers, Stats                                                             |
+| `/about`           | Founder Journey, Business+Engineering mindset, System Architect, AI Engineering, Why Work With Me |
+| `/skills`          | Skills (the tech stack)                                                                           |
+| `/experience`      | Experience                                                                                        |
+| `/startup`         | Case Study — ConnectEdApp (founder deep-dive)                                                     |
+| `/work`            | Products I've Built grid (Revize, Ignix UI, …)                                                    |
+| `/building`        | The "Building" family hub (8 AI products) + platform thesis                                       |
+| `/building/[slug]` | Per-project detail page (rendered from `src/content/building.ts`)                                 |
+| `/contact`         | Contact form (`#contact`)                                                                         |
 
 Section docs: [hero-section.md](./hero-section.md),
 [../career/founder-journey.md](../career/founder-journey.md),
