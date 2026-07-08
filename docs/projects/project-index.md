@@ -25,17 +25,23 @@ GitHub repo. Source: `src/content/building.ts`; rendered by `BuildingNow.tsx`
 (hub) and `ProjectDetail.tsx` (detail). See
 [`../portfolio/homepage-content.md`](../portfolio/homepage-content.md).
 
-| Project                   | Status   | Accent    | Repo                                                                               | Doc                                                        |
-| ------------------------- | -------- | --------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| ContextOS                 | Building | `#8B5CF6` | [contextos](https://github.com/MNikks01/contextos)                                 | [contextos.md](./contextos.md)                             |
-| Codebase Intelligence     | Building | `#00D4FF` | [codebase-intelligence](https://github.com/MNikks01/codebase-intelligence)         | [codebase-intelligence.md](./codebase-intelligence.md)     |
-| MCP Server Generator      | Active   | `#EC4899` | [mcp-server-generator](https://github.com/MNikks01/mcp-server-generator)           | [mcp-server-generator.md](./mcp-server-generator.md)       |
-| Agent Monitoring Platform | Building | `#22D3EE` | [agent-monitoring-platform](https://github.com/MNikks01/agent-monitoring-platform) | [agent-monitoring.md](./agent-monitoring.md)               |
-| AI Project Bootstrapper   | Building | `#10B981` | [project-bootstrapper](https://github.com/MNikks01/project-bootstrapper)           | [ai-project-bootstrapper.md](./ai-project-bootstrapper.md) |
-| System Design Assistant   | Building | `#F59E0B` | [system-design-assistant](https://github.com/MNikks01/system-design-assistant)     | [system-design-assistant.md](./system-design-assistant.md) |
-| Agent Marketplace         | Planned  | `#3B82F6` | [agent-marketplace](https://github.com/MNikks01/agent-marketplace)                 | [agent-marketplace.md](./agent-marketplace.md)             |
-| DocsHub                   | Building | `#0EA5E9` | [tutorials-web-app](https://github.com/MNikks01/tutorials-web-app)                 | [docshub.md](./docshub.md)                                 |
+| Project                              | Status   | Accent    | Repo                                                                                                     | Doc                                                                |
+| ------------------------------------ | -------- | --------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| AI Opportunity Intelligence Platform | Active   | `#A855F7` | [AI-Opportunity-Intellegence-Platform](https://github.com/MNikks01/AI-Opportunity-Intellegence-Platform) | [ai-opportunity-intelligence.md](./ai-opportunity-intelligence.md) |
+| ContextOS                            | Building | `#8B5CF6` | [contextos](https://github.com/MNikks01/contextos)                                                       | [contextos.md](./contextos.md)                                     |
+| Codebase Intelligence                | Building | `#00D4FF` | [codebase-intelligence](https://github.com/MNikks01/codebase-intelligence)                               | [codebase-intelligence.md](./codebase-intelligence.md)             |
+| MCP Server Generator                 | Active   | `#EC4899` | [mcp-server-generator](https://github.com/MNikks01/mcp-server-generator)                                 | [mcp-server-generator.md](./mcp-server-generator.md)               |
+| Agent Monitoring Platform            | Building | `#22D3EE` | [agent-monitoring-platform](https://github.com/MNikks01/agent-monitoring-platform)                       | [agent-monitoring.md](./agent-monitoring.md)                       |
+| AI Project Bootstrapper              | Building | `#10B981` | [project-bootstrapper](https://github.com/MNikks01/project-bootstrapper)                                 | [ai-project-bootstrapper.md](./ai-project-bootstrapper.md)         |
+| System Design Assistant              | Building | `#F59E0B` | [system-design-assistant](https://github.com/MNikks01/system-design-assistant)                           | [system-design-assistant.md](./system-design-assistant.md)         |
+| Agent Marketplace                    | Planned  | `#3B82F6` | [agent-marketplace](https://github.com/MNikks01/agent-marketplace)                                       | [agent-marketplace.md](./agent-marketplace.md)                     |
+| DocsHub                              | Building | `#0EA5E9` | [tutorials-web-app](https://github.com/MNikks01/tutorials-web-app)                                       | [docshub.md](./docshub.md)                                         |
 
+> **Flagship:** the **AI Opportunity Intelligence Platform** leads the `/building`
+> hub as the featured card — a standalone, feature-complete autonomous product
+> (the most ambitious system in the portfolio), sitting ahead of the AI-developer
+> product family below.
+>
 > **Platform thesis:** ContextOS is the hub; Codebase Intelligence is the
 > substrate; Agent Monitoring is the reliability layer; the MCP Server Generator
 > and AI Project Bootstrapper are top-of-funnel on-ramps; System Design Assistant
