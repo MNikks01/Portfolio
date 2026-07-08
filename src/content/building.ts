@@ -10,12 +10,14 @@ import {
   Network,
   Store,
   BookOpen,
+  Radar,
 } from "lucide-react";
 
 export type ProjectStatus = "Active" | "Building" | "Planned";
 
 export type BuildingProject = {
   slug: string;
+  featured?: boolean; // renders as the emphasized flagship card at the top of the hub
   name: string;
   tagline: string; // short card description
   oneLiner: string; // the repo's headline quote
@@ -42,6 +44,103 @@ export type BuildingProject = {
 const GH = "https://github.com/MNikks01";
 
 export const projects: BuildingProject[] = [
+  {
+    slug: "ai-opportunity-intelligence",
+    featured: true,
+    name: "AI Opportunity Intelligence Platform",
+    tagline:
+      "An autonomous intelligence system that watches the entire AI ecosystem 24/7 and turns raw signals into validated, scored, actionable opportunities — my most ambitious build to date.",
+    oneLiner:
+      "Discover AI trends before everyone else. Validate the opportunity. Build faster.",
+    category: "Autonomous market intelligence",
+    color: "#A855F7",
+    icon: Radar,
+    status: "Active",
+    statusNote:
+      "Feature-complete and running end-to-end — full autonomous pipeline, six live connectors, 200 passing tests. Runs green with zero external keys.",
+    projectNo: "★ Flagship · Most ambitious",
+    difficulty: "Very High",
+    timeToMvp: "Shipped — released and running end-to-end",
+    repoUrl: "https://github.com/MNikks01/AI-Opportunity-Intellegence-Platform",
+    thesisRole:
+      "The flagship. A standalone, end-to-end autonomous product — the largest system I've architected: a six-service monorepo that ingests the AI ecosystem, clusters and scores it, and delivers decisions, not headlines.",
+    summary: [
+      "The AI space moves faster than any human can track. Every day brings new models, tools, repos, launches, and papers — and the signal that matters is buried under noise. This platform is an autonomous intelligence system that monitors the entire AI ecosystem continuously and converts raw signals into validated trends with structured opportunity assessments and concrete recommendations.",
+      "It is a decision layer, not a news aggregator: an autonomous pipeline (ingest → dedupe → cluster → score → embed → deliver) pulls from six sources, scores every emerging trend against a consistent 10-dimension rubric, and surfaces only the opportunities worth acting on — each with an action plan you could start building from today.",
+    ],
+    problem: [
+      "Information overload is the tax on everyone building in AI. The trends that matter are drowned out by hype, and by the time an opportunity is obvious it's already crowded. Founders, developers, and creators need to see viable openings early — and know why they're viable.",
+      "Aggregators and newsletters surface volume, not judgement. Nothing scores opportunities consistently, attaches an executable plan, or does it continuously and autonomously across the whole ecosystem at once.",
+    ],
+    whatItIs: [
+      "A production monorepo (Turborepo/pnpm) of four apps (web, admin, marketing, docs) and six services (api, ai-service, ingestion, scheduler, notifications, plus supporting packages), deployed across Vercel + Fly.io.",
+      "Six connectors — Hacker News, GitHub, Hugging Face, Reddit, Product Hunt, and YouTube — feed a continuous BullMQ scheduler. Signals are deduped, clustered into trends, embedded (pgvector) for semantic discovery, scored on a 10-dimension rubric, and delivered as scorecards, action plans, watchlist alerts, and daily briefs.",
+    ],
+    features: [
+      {
+        title: "10-dimension trend scorecards",
+        desc: "Every trend is scored on a consistent rubric — business, developer, and creator value, SEO, monetization, competition, risk, difficulty, and predicted lifetime — so you compare opportunities objectively.",
+      },
+      {
+        title: "Executable action plans",
+        desc: "Each opportunity ships with concrete ideas: keywords, product names, target audiences, pricing, and a suggested tech stack — a starting point, not just a headline.",
+      },
+      {
+        title: "Autonomous ingest pipeline",
+        desc: "ingest → dedupe → cluster → score → embed → deliver, running continuously on a BullMQ scheduler across six live connectors — no human in the loop.",
+      },
+      {
+        title: "Dual keyword + semantic search",
+        desc: "PostgreSQL full-text search for precision plus pgvector cosine similarity for semantic discovery of related and emerging trends.",
+      },
+      {
+        title: "Watchlist alerts & daily briefs",
+        desc: "Threshold-based watchlists that fire on the signals you care about, plus per-organization daily digests of the top opportunities, delivered by email.",
+      },
+      {
+        title: "Multi-tenant SaaS, secure by default",
+        desc: "Clerk auth, RBAC, Postgres row-level security, GDPR compliance, and Stripe-powered Free/Pro billing — built as a real product, not a demo.",
+      },
+    ],
+    techStack: [
+      "TypeScript · Python",
+      "Next.js (App Router / RSC)",
+      "Fastify · tRPC",
+      "PostgreSQL + pgvector · Prisma",
+      "Redis · BullMQ",
+      "LiteLLM gateway",
+      "Clerk · Stripe",
+      "Turborepo + pnpm",
+      "Vercel · Fly.io",
+    ],
+    model: [
+      "Multi-tenant SaaS with Stripe-powered Free and Pro plans; the free tier surfaces limited opportunities, Pro unlocks full scorecards, action plans, watchlists, and daily briefs.",
+      "Positioned as the decision layer for anyone building in AI — founders validating ideas, developers picking what to build, and creators finding what to cover next.",
+    ],
+    differentiators: [
+      "A decision layer, not a feed — it scores and validates opportunities instead of just listing links.",
+      "Fully autonomous and continuous: six connectors and a 24/7 pipeline, no manual curation.",
+      "Every trend carries an objective 10-dimension score and a concrete, buildable action plan.",
+      "Architected as a real, feature-complete, multi-service product with 200 passing tests — the most ambitious system in my portfolio.",
+    ],
+    roadmap: [
+      {
+        stage: "Shipped",
+        detail:
+          "End-to-end autonomous pipeline, six connectors, 10-dimension scoring, dual search, watchlists + alerts, daily briefs, multi-tenant auth/RBAC/RLS, and Stripe billing — running green with 200 passing tests.",
+      },
+      {
+        stage: "Next",
+        detail:
+          "More connectors and deeper source coverage, richer semantic clustering, and sharper opportunity-quality tuning on the scoring rubric.",
+      },
+      {
+        stage: "Later",
+        detail:
+          "Team workspaces and shared watchlists, an API/MCP surface so agents can query the opportunity graph, and export/integration into downstream build workflows.",
+      },
+    ],
+  },
   {
     slug: "contextos",
     name: "ContextOS",

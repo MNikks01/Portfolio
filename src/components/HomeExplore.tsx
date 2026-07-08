@@ -40,7 +40,7 @@ const cards = [
   {
     href: "/building",
     label: "Building",
-    desc: "A family of 8 AI-developer products I'm building in the open — each its own page.",
+    desc: "My flagship AI opportunity-intelligence platform plus a family of AI-developer products I'm building in the open — each its own page.",
     icon: Boxes,
     color: "#EC4899",
   },
