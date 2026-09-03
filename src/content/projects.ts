@@ -1,5 +1,5 @@
 // Project cards. Mirrors docs/projects/*.md + docs/projects/project-index.md.
-import { Cloud, Server, Sparkles } from "lucide-react";
+import { Cloud, Landmark, Server, Sparkles } from "lucide-react";
 
 export type Project = {
   name: string;
@@ -85,5 +85,35 @@ export const projects: Project[] = [
     icon: Cloud,
     accent: "#8B5CF6",
     architecture: ["Editor", "MCP", "Registry API", "Codegen", "Docs"],
+  },
+  {
+    name: "LokDarpan",
+    role: "Founder & Architect",
+    summary:
+      "A public-finance and governance intelligence platform for India — links official records into one traceable ledger from revenue to completed work, with compiler-enforced neutrality and provenance. My most ambitious build to date.",
+    tech: [
+      "TypeScript",
+      "Next.js",
+      "PostgreSQL + PostGIS",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+    ],
+    metrics: [
+      { label: "Gov Sources", value: "99" },
+      { label: "Spec Docs", value: "110" },
+      { label: "Tests", value: "75+" },
+    ],
+    icon: Landmark,
+    accent: "#F97316",
+    architecture: [
+      "Government Sources",
+      "Ingestion + Normalization",
+      "Entity Resolution",
+      "Ledger (Postgres + PostGIS)",
+      "Consistency + Risk Engine",
+      "Public Web App",
+    ],
   },
 ];
