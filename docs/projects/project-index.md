@@ -9,12 +9,20 @@ Master list of products/projects. When adding a project: create
 | ConnectEdApp                  | Founder & Full Stack Engineer | Launched   | `#EC4899` | [connectedapp.md](./connectedapp.md) |
 | Revize Accessibility Platform | Senior Engineer               | Production | `#00D4FF` | [revize.md](./revize.md)             |
 | Ignix UI                      | Creator / Architect           | Building   | `#8B5CF6` | [ignix-ui.md](./ignix-ui.md)         |
+| LokDarpan                     | Founder & Architect           | Building   | `#F97316` | [lokdarpan.md](./lokdarpan.md)       |
 
 ## Flagship
 
 **ConnectEdApp** is the flagship case study (founder + full product ownership).
-It gets a dedicated deep-dive section (`CaseStudy.tsx`); Revize and Ignix UI
-appear in the "Products I've Built" grid (`Projects.tsx`).
+It gets a dedicated deep-dive section (`CaseStudy.tsx`); Revize, Ignix UI, and
+LokDarpan appear in the "Products I've Built" grid (`Projects.tsx`).
+
+LokDarpan is the most ambitious project in scope and rigor (110 specification
+documents, 99 verified government sources, compiler-enforced neutrality and
+provenance), but it is early-stage (specification-complete, implementation just
+begun) — so it's listed here rather than promoted to a dedicated case study or
+the `/building` flagship slot, which is reserved for the AI-developer product
+family.
 
 ## The "Building" family (`/building` route + detail pages)
 
