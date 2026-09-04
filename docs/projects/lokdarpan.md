@@ -1,7 +1,9 @@
 # LokDarpan (लोकदर्पण)
 
-> Source of truth for the LokDarpan entry in `src/components/Projects.tsx`.
-> Content layer: `src/content/projects.ts`.
+> Source of truth for the LokDarpan entry in the `/building` hub
+> (`BuildingNow.tsx`, rendered as the featured flagship card) + its
+> `/building/[slug]` detail page (`ProjectDetail.tsx`). Content layer:
+> `src/content/building.ts` (slug: `lokdarpan`).
 
 | Field    | Value                                                   |
 | -------- | ------------------------------------------------------- |
@@ -9,6 +11,7 @@
 | Duration | 2026 — Present                                          |
 | Status   | Building (specification-complete, early implementation) |
 | Accent   | `#F97316`                                               |
+| Category | Public-finance & governance intelligence                |
 | Repo     | https://github.com/MNikks01/LokDarpan                   |
 
 ## Overview
@@ -110,7 +113,8 @@ verified government sources) are specified and being built toward.
 
 ## Role in the portfolio
 
-Shown in the "Products I've Built" grid (`Projects.tsx`) as the most ambitious
-project in scope and rigor — distinct from the AI-developer "Building" family
-(`/building`), since LokDarpan is a public-interest civic-data platform, not an
-AI-developer tool.
+Leads the `/building` hub as the featured flagship card — my most ambitious
+build to date, in scope and rigor. It is distinct from (and sits ahead of) the
+AI-developer "Building" product family below it: LokDarpan is a public-interest
+civic-data platform, not an AI-developer tool, so its `thesisRole` frames it as
+a standalone flagship rather than part of that family's ContextOS thesis.

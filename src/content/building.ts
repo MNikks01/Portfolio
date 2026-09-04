@@ -11,6 +11,7 @@ import {
   Store,
   BookOpen,
   Radar,
+  Landmark,
 } from "lucide-react";
 
 export type ProjectStatus = "Active" | "Building" | "Planned";
@@ -45,11 +46,108 @@ const GH = "https://github.com/MNikks01";
 
 export const projects: BuildingProject[] = [
   {
-    slug: "ai-opportunity-intelligence",
+    slug: "lokdarpan",
     featured: true,
+    name: "LokDarpan",
+    tagline:
+      "A public-finance and governance intelligence platform for India — links official records into one traceable, auditable ledger from revenue to completed work, with compiler-enforced neutrality and provenance. My most ambitious build to date.",
+    oneLiner:
+      "Every rupee traceable, every observation neutral — a mathematical-consistency engine over India's public finance and infrastructure records.",
+    category: "Public-finance & governance intelligence",
+    color: "#F97316",
+    icon: Landmark,
+    status: "Building",
+    statusNote:
+      "Specification-complete (110 docs); apps/web builds with 38 passing tests on fixture data. Real government-data ingestion and services/* are being built next. Apache-2.0.",
+    projectNo: "★ Flagship · Most ambitious",
+    difficulty: "Very High",
+    timeToMvp: "Specification-complete — implementation in progress",
+    repoUrl: "https://github.com/MNikks01/LokDarpan",
+    thesisRole:
+      "The flagship. A standalone, public-interest platform — independent of the AI-developer product family below — and the most demanding system I've designed: in scope (a full revenue-to-completion ledger across 99 government sources), rigor (110 specification documents written before implementation), and the neutrality/provenance discipline the domain requires.",
+    summary: [
+      "LokDarpan is a public-finance, governance, and infrastructure intelligence platform for India, built entirely on official government records. It links official data into one traceable ledger — revenue → budget → ministry → state → district → local body → department → scheme → tender → contractor → release → expenditure → work progress → completion → audit — and runs mathematical-consistency and variance checks over the chain. It is my most ambitious build to date: not in lines shipped yet, but in scope, rigor, and the discipline the domain demands.",
+      "It is explicitly not an anti-corruption or accusation engine, a legal authority, or a source of allegations. It is a transparency tool, a mathematical-consistency checker over official records, and an anomaly highlighter with full source traceability — every figure is traceable to an official source, and every observation is a neutral, factual statement.",
+    ],
+    problem: [
+      "Public-finance and infrastructure data in India is scattered across dozens of government portals, in incompatible formats, with no way to trace a rupee from the budget line that allocated it to the completed (or incomplete) work on the ground.",
+      "Existing dashboards summarize a single source in isolation; nothing links revenue → budget → scheme → tender → expenditure → completion into one auditable chain, or checks whether the numbers along that chain are internally consistent.",
+      'Any tool in this space has to be provably neutral: a mislabeled "anomaly" can read as an accusation, so the platform\'s credibility depends on discipline most dashboards never have to build.',
+    ],
+    whatItIs: [
+      "A pnpm/Turborepo-style monorepo: apps/web (the Next.js public site, the first product), services/ (ingestion, normalization, entity-resolution, analytics, a risk engine, an AI layer, and the public API), packages/ (money for exact-precision ledger arithmetic, neutrality for a compile-time-enforced neutral-language gate, contracts, domain, config, database, observability, errors), database/ (versioned, immutable migrations against Postgres + PostGIS), and .docs/ — 110 specification documents written before implementation began.",
+      "Money is stored as bigint paise, never a float, because a national multi-year aggregate exceeds Number.MAX_SAFE_INTEGER; a <Figure> component cannot render a number without a provenance prop; and observation text is typed as ServerText so neutral copy can only originate from the API, with a CI language gate (pnpm neutrality) blocking release on a forbidden-language hit.",
+    ],
+    features: [
+      {
+        title: "A traceable public-finance ledger",
+        desc: "Every rupee is linked from revenue and budget through to completed (or incomplete) work, sourced from 99 government registries (96 verified).",
+      },
+      {
+        title: "Mathematical-consistency & variance checks",
+        desc: "The platform runs arithmetic and consistency checks across the full ledger chain rather than summarizing any one source in isolation.",
+      },
+      {
+        title: "Money as bigint paise, never a float",
+        desc: "A national multi-year aggregate exceeds Number.MAX_SAFE_INTEGER; the money package makes silent precision loss structurally impossible.",
+      },
+      {
+        title: "Provenance-enforced rendering",
+        desc: "A <Figure> component cannot render a number without a provenance prop — it's a compile error, not a review note.",
+      },
+      {
+        title: "Neutrality enforced in the type system",
+        desc: "Observation text is typed as ServerText and can only originate from the API; a language gate blocks release on a forbidden-language hit, including Hindi and Marathi vocabulary.",
+      },
+      {
+        title: "Two-privilege-level database access",
+        desc: "ETL/migrations connect as the ledger's sole write path; the API connects as a read-only user and verifies this at startup, exiting immediately if its credentials can write.",
+      },
+    ],
+    techStack: [
+      "TypeScript",
+      "Next.js",
+      "PostgreSQL + PostGIS",
+      "Redis",
+      "PL/pgSQL",
+      "Docker · Kubernetes",
+      "Terraform",
+      "pnpm workspaces · Vitest",
+      "GitHub Actions",
+    ],
+    model: [
+      "Open-source (Apache-2.0), public-interest project — deliberately independent of any government body, agency, or political party.",
+      "A free, public transparency tool with no paywall on ledger data; sustainability model to be defined post-launch.",
+    ],
+    differentiators: [
+      "Built on a traceable ledger chain, not isolated dashboards — every figure connects back through the full revenue-to-completion path.",
+      "Specification-first discipline: 110 documents and binding legal/ethical rules were written before a line of ingestion code, because a factual error at this scope is a credibility failure, not a bug.",
+      'Neutrality and provenance enforced by the compiler, not by policy — the type system and a CI language gate make the platform\'s core promise ("every figure sourced, every observation neutral") structurally true.',
+      "Deliberately scoped as a public-interest project, independent of any government body, agency, or political party.",
+    ],
+    roadmap: [
+      {
+        stage: "Now",
+        detail:
+          "Specification-complete (110 docs, 99 verified government sources). apps/web builds with 38 passing tests on fixture data only — no real government data ingested yet.",
+      },
+      {
+        stage: "Next",
+        detail:
+          "Build out services/* (ingestion, normalization, entity-resolution, risk engine) and connect the first verified government sources into the live ledger.",
+      },
+      {
+        stage: "Later",
+        detail:
+          "Scale ingestion across all 99 verified government registries, launch the mobile app, and open the public API.",
+      },
+    ],
+  },
+  {
+    slug: "ai-opportunity-intelligence",
     name: "AI Opportunity Intelligence Platform",
     tagline:
-      "An autonomous intelligence system that watches the entire AI ecosystem 24/7 and turns raw signals into validated, scored, actionable opportunities — my most ambitious build to date.",
+      "An autonomous intelligence system that watches the entire AI ecosystem 24/7 and turns raw signals into validated, scored, actionable opportunities.",
     oneLiner:
       "Discover AI trends before everyone else. Validate the opportunity. Build faster.",
     category: "Autonomous market intelligence",
@@ -58,12 +156,12 @@ export const projects: BuildingProject[] = [
     status: "Active",
     statusNote:
       "Feature-complete and running end-to-end — full autonomous pipeline, six live connectors, 200 passing tests. Runs green with zero external keys.",
-    projectNo: "★ Flagship · Most ambitious",
+    projectNo: "Standalone · Feature-complete",
     difficulty: "Very High",
     timeToMvp: "Shipped — released and running end-to-end",
     repoUrl: "https://github.com/MNikks01/AI-Opportunity-Intellegence-Platform",
     thesisRole:
-      "The flagship. A standalone, end-to-end autonomous product — the largest system I've architected: a six-service monorepo that ingests the AI ecosystem, clusters and scores it, and delivers decisions, not headlines.",
+      "A standalone, end-to-end autonomous product, shipped independently of the platform family below — one of the largest systems I've architected: a six-service monorepo that ingests the AI ecosystem, clusters and scores it, and delivers decisions, not headlines.",
     summary: [
       "The AI space moves faster than any human can track. Every day brings new models, tools, repos, launches, and papers — and the signal that matters is buried under noise. This platform is an autonomous intelligence system that monitors the entire AI ecosystem continuously and converts raw signals into validated trends with structured opportunity assessments and concrete recommendations.",
       "It is a decision layer, not a news aggregator: an autonomous pipeline (ingest → dedupe → cluster → score → embed → deliver) pulls from six sources, scores every emerging trend against a consistent 10-dimension rubric, and surfaces only the opportunities worth acting on — each with an action plan you could start building from today.",
@@ -121,7 +219,7 @@ export const projects: BuildingProject[] = [
       "A decision layer, not a feed — it scores and validates opportunities instead of just listing links.",
       "Fully autonomous and continuous: six connectors and a 24/7 pipeline, no manual curation.",
       "Every trend carries an objective 10-dimension score and a concrete, buildable action plan.",
-      "Architected as a real, feature-complete, multi-service product with 200 passing tests — the most ambitious system in my portfolio.",
+      "Architected as a real, feature-complete, multi-service product with 200 passing tests, running green end-to-end.",
     ],
     roadmap: [
       {

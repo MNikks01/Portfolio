@@ -12,8 +12,8 @@ site was split out of a single long page so each area has its own URL.
 | `/skills`          | Skills (the tech stack)                                                                           |
 | `/experience`      | Experience                                                                                        |
 | `/startup`         | Case Study — ConnectEdApp (founder deep-dive)                                                     |
-| `/work`            | Products I've Built grid (Revize, Ignix UI, …)                                                    |
-| `/building`        | The "Building" family hub (8 AI products) + platform thesis                                       |
+| `/work`            | Products I've Built grid (Revize, Ignix UI)                                                       |
+| `/building`        | The "Building" hub — LokDarpan (flagship) + AI-developer product family + platform thesis         |
 | `/building/[slug]` | Per-project detail page (rendered from `src/content/building.ts`)                                 |
 | `/contact`         | Contact form (`#contact`)                                                                         |
 
@@ -27,9 +27,13 @@ Section docs: [hero-section.md](./hero-section.md),
 
 ## Building family (`/building` + detail pages)
 
-A family of AI-developer products united by **context as the connective layer**
-(MCP-native, governed, observable), plus a knowledge SaaS — each backed by a real
-GitHub repo (see [../projects/project-index.md](../projects/project-index.md)):
+Led by **LokDarpan** — a public-finance and governance intelligence platform for
+India, my most ambitious build to date in scope and rigor — the hub also shows
+the **AI Opportunity Intelligence Platform** (a standalone, feature-complete
+autonomous product) plus a family of AI-developer products united by **context
+as the connective layer** (MCP-native, governed, observable), and a knowledge
+SaaS — each backed by a real GitHub repo (see
+[../projects/project-index.md](../projects/project-index.md)):
 
 ContextOS (AI developer workspace / context layer) · Codebase Intelligence
 Platform (team-grade codebase brain) · MCP Server Generator (production-ready,
