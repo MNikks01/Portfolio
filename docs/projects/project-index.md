@@ -9,20 +9,15 @@ Master list of products/projects. When adding a project: create
 | ConnectEdApp                  | Founder & Full Stack Engineer | Launched   | `#EC4899` | [connectedapp.md](./connectedapp.md) |
 | Revize Accessibility Platform | Senior Engineer               | Production | `#00D4FF` | [revize.md](./revize.md)             |
 | Ignix UI                      | Creator / Architect           | Building   | `#8B5CF6` | [ignix-ui.md](./ignix-ui.md)         |
-| LokDarpan                     | Founder & Architect           | Building   | `#F97316` | [lokdarpan.md](./lokdarpan.md)       |
 
 ## Flagship
 
 **ConnectEdApp** is the flagship case study (founder + full product ownership).
-It gets a dedicated deep-dive section (`CaseStudy.tsx`); Revize, Ignix UI, and
-LokDarpan appear in the "Products I've Built" grid (`Projects.tsx`).
+It gets a dedicated deep-dive section (`CaseStudy.tsx`); Revize and Ignix UI
+appear in the "Products I've Built" grid (`Projects.tsx`).
 
-LokDarpan is the most ambitious project in scope and rigor (110 specification
-documents, 99 verified government sources, compiler-enforced neutrality and
-provenance), but it is early-stage (specification-complete, implementation just
-begun) — so it's listed here rather than promoted to a dedicated case study or
-the `/building` flagship slot, which is reserved for the AI-developer product
-family.
+**LokDarpan** moved out of this grid into the `/building` hub, where it is now
+the featured flagship card — see the Building family table below.
 
 ## The "Building" family (`/building` route + detail pages)
 
@@ -35,6 +30,7 @@ GitHub repo. Source: `src/content/building.ts`; rendered by `BuildingNow.tsx`
 
 | Project                              | Status   | Accent    | Repo                                                                                                     | Doc                                                                |
 | ------------------------------------ | -------- | --------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| LokDarpan                            | Building | `#F97316` | [LokDarpan](https://github.com/MNikks01/LokDarpan)                                                       | [lokdarpan.md](./lokdarpan.md)                                     |
 | AI Opportunity Intelligence Platform | Active   | `#A855F7` | [AI-Opportunity-Intellegence-Platform](https://github.com/MNikks01/AI-Opportunity-Intellegence-Platform) | [ai-opportunity-intelligence.md](./ai-opportunity-intelligence.md) |
 | ContextOS                            | Building | `#8B5CF6` | [contextos](https://github.com/MNikks01/contextos)                                                       | [contextos.md](./contextos.md)                                     |
 | Codebase Intelligence                | Building | `#00D4FF` | [codebase-intelligence](https://github.com/MNikks01/codebase-intelligence)                               | [codebase-intelligence.md](./codebase-intelligence.md)             |
@@ -45,10 +41,15 @@ GitHub repo. Source: `src/content/building.ts`; rendered by `BuildingNow.tsx`
 | Agent Marketplace                    | Planned  | `#3B82F6` | [agent-marketplace](https://github.com/MNikks01/agent-marketplace)                                       | [agent-marketplace.md](./agent-marketplace.md)                     |
 | DocsHub                              | Building | `#0EA5E9` | [tutorials-web-app](https://github.com/MNikks01/tutorials-web-app)                                       | [docshub.md](./docshub.md)                                         |
 
-> **Flagship:** the **AI Opportunity Intelligence Platform** leads the `/building`
-> hub as the featured card — a standalone, feature-complete autonomous product
-> (the most ambitious system in the portfolio), sitting ahead of the AI-developer
-> product family below.
+> **Flagship:** **LokDarpan** leads the `/building` hub as the featured card —
+> a standalone, public-interest public-finance and governance platform (the
+> most ambitious project in the portfolio in scope and rigor), sitting ahead of
+> the AI Opportunity Intelligence Platform and the AI-developer product family
+> below.
+>
+> **AI Opportunity Intelligence Platform** is a standalone, feature-complete
+> autonomous product shown as a regular card — not part of the ContextOS
+> platform thesis below, but one of the largest systems architected to date.
 >
 > **Platform thesis:** ContextOS is the hub; Codebase Intelligence is the
 > substrate; Agent Monitoring is the reliability layer; the MCP Server Generator

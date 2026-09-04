@@ -30,7 +30,7 @@ export default function BuildingNow() {
               What I&apos;m <span className="text-gradient">building now</span>
             </>
           }
-          description="Led by my most ambitious build to date — plus a family of AI-developer products united by one thesis: context is the connective layer. Each is a real, open repo — click any to go deep."
+          description="Led by LokDarpan, my most ambitious build to date — plus a family of AI-developer products united by one thesis: context is the connective layer. Each is a real, open repo — click any to go deep."
         />
 
         <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-overlay/10 bg-overlay/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-emerald-400">

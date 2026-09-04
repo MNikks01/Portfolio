@@ -1,9 +1,10 @@
 # AI Opportunity Intelligence Platform
 
 > Source of truth for the AI Opportunity Intelligence Platform entry in the
-> `/building` hub (`BuildingNow.tsx`, rendered as the featured flagship card) +
-> its `/building/[slug]` detail page (`ProjectDetail.tsx`). Content layer:
-> `src/content/building.ts` (slug: `ai-opportunity-intelligence`).
+> `/building` hub (`BuildingNow.tsx`, rendered as a standalone card — LokDarpan
+> holds the featured flagship slot) + its `/building/[slug]` detail page
+> (`ProjectDetail.tsx`). Content layer: `src/content/building.ts` (slug:
+> `ai-opportunity-intelligence`).
 
 | Field    | Value                                                            |
 | -------- | ---------------------------------------------------------------- |
@@ -19,9 +20,9 @@
 The **AI Opportunity Intelligence Platform** is an autonomous intelligence system
 that monitors the entire AI ecosystem continuously and converts raw signals into
 **validated trends with structured opportunity assessments and actionable
-recommendations**. It is the most ambitious system in the portfolio: a
-six-service monorepo that ingests, dedupes, clusters, scores, embeds, and
-delivers — a decision layer, not a news aggregator.
+recommendations**. It is a standalone, feature-complete product: a six-service
+monorepo that ingests, dedupes, clusters, scores, embeds, and delivers — a
+decision layer, not a news aggregator.
 
 Tagline: _"Discover AI trends before everyone else. Validate the opportunity.
 Build faster."_
@@ -79,7 +80,7 @@ Stripe · Turborepo + pnpm. Deployed on Vercel + Fly.io. Custom Claude skills in
 3. Every trend carries an **objective 10-dimension score** and a concrete,
    buildable **action plan**.
 4. Architected as a real, feature-complete, multi-service product with **200
-   passing tests** — the most ambitious system in the portfolio.
+   passing tests**, running green end-to-end.
 
 ## Status
 
@@ -88,7 +89,8 @@ green without external keys; real integrations activate via configuration.
 
 ## Role in the portfolio
 
-The **flagship / most ambitious** build. It is a standalone, end-to-end
-autonomous product and the largest system architected to date — showcased as the
-featured card at the top of the `/building` hub, ahead of the ContextOS
-AI-developer product family.
+A standalone, end-to-end autonomous product and one of the largest systems
+architected to date — shown as a regular card in the `/building` hub, alongside
+the ContextOS AI-developer product family. LokDarpan (public-finance and
+governance intelligence) now holds the featured flagship slot at the top of the
+hub as the most ambitious build to date, in scope and rigor.
